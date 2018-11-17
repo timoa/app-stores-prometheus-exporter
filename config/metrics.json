@@ -1,54 +1,52 @@
 {
-  "itunes": {
-    "score": {
-      "name": "appstores_itunes_score_total",
-      "help": "Itunes app score since the launch of the app"
-    },
-    "reviews": {
-      "name": "appstores_itunes_reviews_total",
-      "help": "iTunes app reviews since the launch of the app"
-    },
-    "currentVersionScore": {
-      "name": "appstores_itunes_current_version_score_total",
-      "help": "iTunes app score for the current app version"
-    },
-    "currentVersionReviews": {
-      "name": "appstores_itunes_current_version_reviews_total",
-      "help": "iTunes app reviews for the current app version"
-    }
+  "score": {
+    "name": "appstores_score_total",
+    "help": "App score since the launch of the app",
+    "compatibility": ["itunes", "gplay"]
   },
-  "gplay": {
-    "score": {
-      "name": "appstores_gplay_score_total",
-      "help": "Google Play app score since the launch of the app"
-    },
-    "reviews": {
-      "name": "appstores_gplay_reviews_total",
-      "help": "Google Play app reviews since the launch of the app"
-    },
-    "ratings": {
-      "name": "appstores_gplay_ratings_total",
-      "help": "Google Play app ratings since the launch of the app"
-    },
-    "ratings1": {
-      "name": "appstores_gplay_ratings_1_total",
-      "help": "Google Play app ratings with 1 star since the launch of the app"
-    },
-    "ratings2": {
-      "name": "appstores_gplay_ratings_2_total",
-      "help": "Google Play app ratings with 2 stars since the launch of the app"
-    },
-    "ratings3": {
-      "name": "appstores_gplay_ratings_3_total",
-      "help": "Google Play app ratings with 3 stars since the launch of the app"
-    },
-    "ratings4": {
-      "name": "appstores_gplay_ratings_4_total",
-      "help": "Google Play app ratings with 4 stars since the launch of the app"
-    },
-    "ratings5": {
-      "name": "appstores_gplay_ratings_5_total",
-      "help": "Google Play app ratings with 5 stars since the launch of the app"
-    }
+  "reviews": {
+    "name": "appstores_reviews_total",
+    "help": "App reviews since the launch of the app",
+    "compatibility": ["itunes", "gplay"]
+  },
+  "ratings": {
+    "name": "appstores_ratings_total",
+    "help": "App ratings since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "ratings1": {
+    "name": "appstores_ratings_1_total",
+    "help": "App ratings with 1 star since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "ratings2": {
+    "name": "appstores_ratings_2_total",
+    "help": "App ratings with 2 stars since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "ratings3": {
+    "name": "appstores_ratings_3_total",
+    "help": "App ratings with 3 stars since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "ratings4": {
+    "name": "appstores_ratings_4_total",
+    "help": "App ratings with 4 stars since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "ratings5": {
+    "name": "appstores_ratings_5_total",
+    "help": "App ratings with 5 stars since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "currentVersionScore": {
+    "name": "appstores_current_version_score_total",
+    "help": "App score for the current app version",
+    "compatibility": ["itunes"]
+  },
+  "currentVersionReviews": {
+    "name": "appstores_current_version_reviews_total",
+    "help": "App reviews for the current app version",
+    "compatibility": ["itunes"]
   }
 }
