@@ -1,6 +1,20 @@
 #!/usr/bin/env node
 'use strict';
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+// Check if apps.sample.json has been renamed
+if (!fs.existsSync(path.resolve(__dirname,'config/apps.json'))) {
+  console.log('Please rename the file "config/apps.sample.json" => "config/apps.json"');
+  process.exit(0);
+}
+
+// Check if config.sample.json has been renamed
+if (!fs.existsSync(path.resolve(__dirname,'config/config.json'))) {
+  console.log('Please rename the file "config/config.sample.json" => "config/config.json"');
+  process.exit(0);
+}
 
 const prometheus = require('./lib/prometheus');
 
