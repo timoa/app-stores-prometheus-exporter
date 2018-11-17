@@ -1,0 +1,24 @@
+{
+  "stores": [
+    "itunes",
+    "gplay"
+  ],
+  "metrics": {
+    "itunes": {
+      "score": true,
+      "reviews": true,
+      "currentVersionScore": true,
+      "currentVersionReviews": true
+    },
+    "gplay": {
+      "score": true,
+      "reviews": true,
+      "ratings": true,
+      "ratings1": true,
+      "ratings2": true,
+      "ratings3": true,
+      "ratings4": true,
+      "ratings5": true
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "app-stores-prometheus-exporter",
+  "version": "0.1.0",
+  "description": "Prometheus exporter that exports metrics (score, ratings, reviews, app version, etc.) from Apple App Store and Google Play (and more in the future).",
+  "scripts": {
+    "start": "node exporter",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "appstores-exporter": "./exporter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timoa/app-stores-prometheus-exporter.git"
+  },
+  "keywords": [
+    "prometheus",
+    "prometheus",
+    "exporter",
+    "itunes-store",
+    "google-play"
+  ],
+  "author": {
+    "name": "Damien Laureaux",
+    "email": "d.laureaux@timoa.com",
+    "url": "https://timoa.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timoa/app-stores-prometheus-exporter/issues"
+  },
+  "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
+  "dependencies": {
+    "app-store-scraper": "^0.13.0",
+    "google-play-scraper": "^6.2.0",
+    "prom-client": "^11.1.3"
+  },
+  "engines": {
+    "node": ">=8.0"
+  },
+  "os": [
+    "linux",
+    "win32",
+    "darwin"
+  ]
+}
