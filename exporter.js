@@ -70,11 +70,3 @@ const shutdown = () => {
 };
 process.on('SIGTERM', () => shutdown());
 process.on('SIGINT', () => shutdown());
-
-if (typeof process === 'object') {
-  process.on('unhandledRejection', (error, promise) => {
-    console.error("== Node detected an unhandled rejection! ==");
-    console.error(error.stack);
-  });
-}
-
