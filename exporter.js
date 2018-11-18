@@ -1,4 +1,4 @@
-'use strict';
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -24,8 +24,8 @@ function getPayload() {
   return new Promise((resolve, reject) => {
     prometheus.getMetrics()
       .then(resolve)
-      .catch(err => {
-        reject(err.message)
+      .catch((err) => {
+        reject(err.message);
       });
   });
 }
@@ -39,24 +39,27 @@ server.listen(9514);
 server.setTimeout(30000);
 
 server.on('request', (req, res) => {
+  let response = {};
   // Only allowed to poll prometheus metrics.
   if (req.method !== 'GET' && req.url !== '/metrics') {
     res.writeHead(404, { 'Content-Type': 'text/html' });
-    return res.end('Not Found.');
+    response = 'Not Found.';
   }
 
   getPayload()
-    .then(payload => {
+    .then((payload) => {
       res.setHeader('Content-Type', prometheus.getContentType());
-      return res.end(payload);
+      response = payload;
     })
-    .catch(err => {
+    .catch((err) => {
       res.writeHead(500, { 'Content-Type': 'text/html' });
-      return res.end(err);
+      response = err;
     });
+
+  return res.end(response);
 });
 
-server.on('listening', port => {
+server.on('listening', () => {
   console.log(`Prometheus App Stores Exporter is listening on http://localhost:${server.address().port}`);
 });
 
