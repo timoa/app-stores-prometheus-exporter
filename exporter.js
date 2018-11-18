@@ -1,17 +1,16 @@
-#!/usr/bin/env node
 'use strict';
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 // Check if apps.sample.json has been renamed
-if (!fs.existsSync(path.resolve(__dirname,'config/apps.json'))) {
+if (!fs.existsSync(path.resolve(__dirname, 'config/apps.json'))) {
   console.log('Please rename the file "config/apps.sample.json" => "config/apps.json"');
   process.exit(0);
 }
 
 // Check if config.sample.json has been renamed
-if (!fs.existsSync(path.resolve(__dirname,'config/config.json'))) {
+if (!fs.existsSync(path.resolve(__dirname, 'config/config.json'))) {
   console.log('Please rename the file "config/config.sample.json" => "config/config.json"');
   process.exit(0);
 }
@@ -22,20 +21,19 @@ const prometheus = require('./lib/prometheus');
 prometheus.init();
 
 function getPayload() {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     prometheus.getMetrics()
-      .then(data => {
-        resolve(data);
-      })
-      .catch(console.log);
-  })
-    .catch(console.log);
+      .then(resolve)
+      .catch(err => {
+        reject(err.message)
+      });
+  });
 }
 
-// Create Server
+// Create the HTTP Server
 const server = http.createServer();
 
-// The default port for this Exporter is 9514
+// The default port for this Prometheus exporter is 9514
 // https://github.com/prometheus/prometheus/wiki/Default-port-allocations
 server.listen(9514);
 server.setTimeout(30000);
@@ -46,19 +44,19 @@ server.on('request', (req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/html' });
     return res.end('Not Found.');
   }
-  
+
   getPayload()
     .then(payload => {
       res.setHeader('Content-Type', prometheus.getContentType());
       return res.end(payload);
     })
-    .catch(() => {
+    .catch(err => {
       res.writeHead(500, { 'Content-Type': 'text/html' });
-      return res.end('Server Error');
+      return res.end(err);
     });
 });
 
-server.on('listening', (port) => {
+server.on('listening', port => {
   console.log(`Prometheus App Stores Exporter is listening on http://localhost:${server.address().port}`);
 });
 
