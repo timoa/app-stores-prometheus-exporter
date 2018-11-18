@@ -32,51 +32,57 @@ For this early version, this Prometheus Exporter exports this data:
 
 ### Default collected metrics
 
-- process_cpu_user_seconds_total
-- process_cpu_system_seconds_total
-- process_cpu_seconds_total
-- process_start_time_seconds
-- process_resident_memory_bytes
-- nodejs_eventloop_lag_seconds
-- nodejs_active_handles_total
-- nodejs_active_requests_total
-- nodejs_heap_size_total_bytes
-- nodejs_heap_size_used_bytes
-- nodejs_external_memory_bytes
-- nodejs_heap_space_size_total_bytes{space="new"}
-- nodejs_heap_space_size_total_bytes{space="old"}
-- nodejs_heap_space_size_total_bytes{space="code"}
-- nodejs_heap_space_size_total_bytes{space="map"}
-- nodejs_heap_space_size_total_bytes{space="large_object"}
-- nodejs_heap_space_size_used_bytes{space="new"}
-- nodejs_heap_space_size_used_bytes{space="old"}
-- nodejs_heap_space_size_used_bytes{space="code"}
-- nodejs_heap_space_size_used_bytes{space="map"}
-- nodejs_heap_space_size_used_bytes{space="large_object"}
-- nodejs_heap_space_size_available_bytes{space="new"}
-- nodejs_heap_space_size_available_bytes{space="old"}
-- nodejs_heap_space_size_available_bytes{space="code"}
-- nodejs_heap_space_size_available_bytes{space="map"}
-- nodejs_heap_space_size_available_bytes{space="large_object"}
-- nodejs_version_info{version="v8.12.0",major="8",minor="12",patch="0"}
+``` text
+process_cpu_user_seconds_total
+process_cpu_system_seconds_total
+process_cpu_seconds_total
+process_start_time_seconds
+process_resident_memory_bytes
+nodejs_eventloop_lag_seconds
+nodejs_active_handles_total
+nodejs_active_requests_total
+nodejs_heap_size_total_bytes
+nodejs_heap_size_used_bytes
+nodejs_external_memory_bytes
+nodejs_heap_space_size_total_bytes{space="new"}
+nodejs_heap_space_size_total_bytes{space="old"}
+nodejs_heap_space_size_total_bytes{space="code"}
+nodejs_heap_space_size_total_bytes{space="map"}
+nodejs_heap_space_size_total_bytes{space="large_object"}
+nodejs_heap_space_size_used_bytes{space="new"}
+nodejs_heap_space_size_used_bytes{space="old"}
+nodejs_heap_space_size_used_bytes{space="code"}
+nodejs_heap_space_size_used_bytes{space="map"}
+nodejs_heap_space_size_used_bytes{space="large_object"}
+nodejs_heap_space_size_available_bytes{space="new"}
+nodejs_heap_space_size_available_bytes{space="old"}
+nodejs_heap_space_size_available_bytes{space="code"}
+nodejs_heap_space_size_available_bytes{space="map"}
+nodejs_heap_space_size_available_bytes{space="large_object"}
+nodejs_version_info{version="v8.12.0",major="8",minor="12",patch="0"}
+```
 
 ### iTunes Store
 
-- appstores_score_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
-- appstores_reviews_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
-- appstores_current_version_score_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
-- appstores_current_version_reviews_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
+``` text
+appstores_score_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
+appstores_reviews_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
+appstores_current_version_score_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
+appstores_current_version_reviews_total{store="STORE",country="COUNTRY",app="BUNDLEID",version="VERSION"}
+```
 
 ### Google Play Store
 
-- appstores_score_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_reviews_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_ratings_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_ratings_1_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_ratings_2_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_ratings_3_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_ratings_4_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
-- appstores_ratings_5_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+``` text
+appstores_score_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_reviews_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_ratings_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_ratings_1_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_ratings_2_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_ratings_3_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_ratings_4_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_ratings_5_total{store="STORE",country="COUNTRY",app="APPID",version="VERSION"}
+```
 
 ## Metrics output example
 
