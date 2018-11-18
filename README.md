@@ -1,6 +1,6 @@
-# (WIP) app-stores-prometheus-exporter
+# App stores Prometheus Exporter
 
-This Prometheus exporter exports metrics (score, ratings, reviews, app version, etc.) from Apple App Store and Google Play
+This Prometheus exporter exports metrics (score, ratings, reviews, app version, etc.) from Apple iTunes and Google Play
 
 It's based on [google-play-scraper](https://github.com/facundoolano/google-play-scraper) and [app-store-scraper](https://github.com/facundoolano/app-store-scraper) to help getting the data from the app stores.
 
