@@ -234,6 +234,8 @@ appstores_ratings_5_total{store="gplay",country="us",app="com.instagram.android"
 
 ### Docker image
 
+#### Default with demo apps
+
 The simplest way to test this Prometheus exporter is by using Docker. The command below will exports the metrics from the default apps from the `config/apps.json`.
 
 ``` bash
@@ -247,7 +249,9 @@ Now, you can see the Prometheus metrics from your browser or command line at [ht
 curl http://localhost:9514
 ```
 
-To customise the Docker image with your apps, you will need to replace this lines under the `Dockerfile` file:
+#### Customise with your own mobile apps
+
+To customise the Docker image with your apps, you will need to follow the [instructions from source code installation](#from-sources) and replace this lines under the `Dockerfile` file:
 
 ``` bash
 RUN \
@@ -264,6 +268,7 @@ RUN \
       npm install --production --unsafe-perm && \
       npm cache clean --force
 ```
+
 
 After that change, build the new Docker image:
 
