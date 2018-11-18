@@ -238,19 +238,25 @@ cd app-stores-prometheus-exporter
 npm install
 ```
 
-Rename the file
-* `config/apps.sample.json` => `config/apps.json`
-* `config/config.sample.json` => `config/config.json`
+Rename the configuration files
+
+| From || To |
+|---|---|---|
+|config/apps.**sample**.json|=>|config/apps.json|
+|config/config.**sample**.json|=>|config/config.json|
 
 ``` bash
 mv config/apps.sample.json config/apps.json
 mv config/config.sample.json config/config.json
 ```
+
 Start the App Stores Prometheus exporter:
 
 ``` bash
 npm start
 ```
+
+The console will output this message:
 
 ``` bash
 Prometheus App Stores Exporter is listening on http://localhost:9514
@@ -258,9 +264,8 @@ Prometheus App Stores Exporter is listening on http://localhost:9514
 
 ## TODO
 
-- Protect memory leak from the external scrapers when app doesn't exist under a country
-- Better error handling
 - Better test coverage
+- Grafana dashboards screenshots and links
 - Refactoring of the code to add more stores as plugins
 - Simplify multiple countries configuration
 - Add support to Mac App Store
