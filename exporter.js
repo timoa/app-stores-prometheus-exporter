@@ -40,14 +40,14 @@ const server = http.createServer();
 server.listen(9514);
 server.setTimeout(30000);
 
-server.on('request', async (req, res) => {
+server.on('request', (req, res) => {
   // Only allowed to poll prometheus metrics.
   if (req.method !== 'GET' && req.url !== '/metrics') {
     res.writeHead(404, { 'Content-Type': 'text/html' });
     return res.end('Not Found.');
   }
   
-  await getPayload()
+  getPayload()
     .then(payload => {
       res.setHeader('Content-Type', prometheus.getContentType());
       return res.end(payload);
