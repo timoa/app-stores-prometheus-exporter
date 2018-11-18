@@ -42,5 +42,17 @@
     "linux",
     "win32",
     "darwin"
-  ]
+  ],
+  "devDependencies": {
+    "acorn": "^6.0.4",
+    "acorn-jsx": "^5.0.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "espree": "^4.1.0",
+    "mocha": "^5.2.0"
+  }
 }
