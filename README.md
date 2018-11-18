@@ -232,9 +232,54 @@ appstores_ratings_5_total{store="gplay",country="us",app="com.instagram.android"
 
 ## Installation
 
+### Docker image
+
+The simplest way to test this Prometheus exporter is by using Docker. The command below will exports the metrics from the default apps from the `config/apps.json`.
+
+``` bash
+docker pull timoa/app-stores-prometheus-exporter
+docker run -p 9514:9514 timoa/app-stores-prometheus-exporter:latest
+```
+
+Now, you can see the Prometheus metrics from your browser or command line at [http://localhost:9514](http://localhost:9514)
+
+``` bash
+curl http://localhost:9514
+```
+
+To customise the Docker image with your apps, you will need to replace this lines under the `Dockerfile` file:
+
+``` bash
+RUN \
+      npm install --production --unsafe-perm && \
+      npm cache clean --force && \
+      mv /opt/app/config/apps.sample.json /opt/app/config/apps.json && \
+      mv /opt/app/config/config.sample.json /opt/app/config/config.json
+```
+
+by this ones:
+
+``` bash
+RUN \
+      npm install --production --unsafe-perm && \
+      npm cache clean --force
+```
+
+After that change, build the new Docker image:
+
+``` bash
+docker build -t app-stores-prometheus-exporter .
+```
+
+and test your new Docker image:
+
+``` bash
+docker run -p 9514:9514 app-stores-prometheus-exporter:latest
+```
+
 ### NPM install
 
-### Docker image
+WIP
 
 ### From sources
 
