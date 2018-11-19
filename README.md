@@ -1,4 +1,4 @@
-# App stores Prometheus Exporter
+# Mobile app stores Prometheus Exporter (iTunes & Google Play)
 
 ![Grafana dashboard that uses the App Stores Prometheus Exporter](/doc/images/grafana-app-stores-per-app.png "Grafana dashboard that uses the App Stores Prometheus Exporter")
 
