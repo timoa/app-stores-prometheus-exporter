@@ -320,6 +320,29 @@ The console will output this message:
 Prometheus App Stores Exporter is listening on http://localhost:9514
 ```
 
+## Prometheus configuration
+
+TO configure Prometheus to pull the data of the App Stores exporter, you just need to add this job to your `prometheus.yml`:
+
+``` yaml
+global:
+[...]
+
+scrape_configs:
+  - job_name: 'appstores'
+    scrape_interval: 5m
+
+    static_configs:
+      - targets:
+        - localhost:9514
+```
+
+### Scrape interval
+
+Since the app stores are using cache for the app details pages, it doesn't make sence to check the pages every 5s.
+
+Depending of the number of apps you will monitor, it will be better to set the scrape interval to 5m or more.
+
 ## TODO
 
 - Better test coverage
