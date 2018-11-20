@@ -1,5 +1,7 @@
 # Mobile app stores Prometheus Exporter (iTunes & Google Play)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ![Grafana dashboard that uses the App Stores Prometheus Exporter](/doc/images/grafana-app-stores-per-app.png "Grafana dashboard that uses the App Stores Prometheus Exporter")
 
 This Prometheus exporter exports metrics (score, ratings, reviews, app version, etc.) from Apple iTunes and Google Play
