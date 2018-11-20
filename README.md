@@ -1,7 +1,6 @@
+# Mobile app stores Prometheus Exporter (iTunes & Google Play)
 
-# App stores Prometheus Exporter
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![Grafana dashboard that uses the App Stores Prometheus Exporter](/doc/images/grafana-app-stores-per-app.png "Grafana dashboard that uses the App Stores Prometheus Exporter")
 
 This Prometheus exporter exports metrics (score, ratings, reviews, app version, etc.) from Apple iTunes and Google Play
 
@@ -320,6 +319,29 @@ The console will output this message:
 ``` bash
 Prometheus App Stores Exporter is listening on http://localhost:9514
 ```
+
+## Prometheus configuration
+
+TO configure Prometheus to pull the data of the App Stores exporter, you just need to add this job to your `prometheus.yml`:
+
+``` yaml
+global:
+[...]
+
+scrape_configs:
+  - job_name: 'appstores'
+    scrape_interval: 5m
+
+    static_configs:
+      - targets:
+        - localhost:9514
+```
+
+### Scrape interval
+
+Since the app stores are using cache for the app details pages, it doesn't make sence to check the pages every 5s.
+
+Depending of the number of apps you will monitor, it will be better to set the scrape interval to 5m or more.
 
 ## TODO
 
