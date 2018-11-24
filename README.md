@@ -1,12 +1,12 @@
 # Mobile app stores Prometheus Exporter (iTunes & Google Play)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT][badge-license]][link-license]
 
-![Grafana dashboard that uses the App Stores Prometheus Exporter](/doc/images/grafana-app-stores-per-app.png "Grafana dashboard that uses the App Stores Prometheus Exporter")
+![Grafana dashboard that uses the App Stores Prometheus Exporter][image-dashboard-app]
 
 This Prometheus exporter exports metrics (score, ratings, reviews, app version, etc.) from Apple iTunes and Google Play
 
-It's based on [google-play-scraper](https://github.com/facundoolano/google-play-scraper) and [app-store-scraper](https://github.com/facundoolano/app-store-scraper) to help getting the data from the app stores.
+It's based on [google-play-scraper][link-google-play-scraper] and [app-store-scraper][link-app-store-scraper] to help getting the data from the mobile app stores.
 
 I'm looking to add more stores in the future (Microsoft Store, Amazon Appstore, etc.)
 
@@ -273,7 +273,6 @@ RUN \
       npm cache clean --force
 ```
 
-
 After that change, build the new Docker image:
 
 ``` bash
@@ -310,7 +309,7 @@ mv config/apps.sample.json config/apps.json
 mv config/config.sample.json config/config.json
 ```
 
-Start the App Stores Prometheus exporter:
+Start the App Stores Prometheus Exporter:
 
 ``` bash
 npm start
@@ -319,12 +318,12 @@ npm start
 The console will output this message:
 
 ``` bash
-Prometheus App Stores Exporter is listening on http://localhost:9514
+Prometheus App Stores exporter is listening on http://localhost:9514
 ```
 
 ## Prometheus configuration
 
-TO configure Prometheus to pull the data of the App Stores exporter, you just need to add this job to your `prometheus.yml`:
+To configure Prometheus to pull the data of the App Stores exporter, you just need to add this job to your `prometheus.yml`:
 
 ``` yaml
 global:
@@ -341,7 +340,7 @@ scrape_configs:
 
 ### Scrape interval
 
-Since the app stores are using cache for the app details pages, it doesn't make sence to check the pages every 5s.
+Since the mobile app stores are using cache for the app details pages, it doesn't make sense to check the pages every 5s.
 
 Depending of the number of apps you will monitor, it will be better to set the scrape interval to 5m or more.
 
@@ -354,3 +353,9 @@ Depending of the number of apps you will monitor, it will be better to set the s
 - Add support to Mac App Store
 - Add support to Microsoft Store
 - Add support to Amazon Appstore
+
+[badge-license]: https://img.shields.io/badge/License-MIT-blue.svg
+[image-dashboard-app]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/doc/images/grafana-app-stores-per-app.png
+[link-license]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/LICENSE
+[link-google-play-scraper]: https://github.com/facundoolano/google-play-scraper
+[link-app-store-scraper]: https://github.com/facundoolano/app-store-scraper
