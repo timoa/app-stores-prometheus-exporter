@@ -40,10 +40,14 @@ server.setTimeout(30000);
 
 server.on('request', (req, res) => {
   // Only allowed to poll prometheus metrics.
-  if (req.method !== 'GET' && req.url !== '/metrics') {
-    res.writeHead(404, { 'Content-Type': 'text/html' });
-    return res.end('Not Found.');
-  }
+    if (req.method === 'HEAD') {
+        res.writeHead(204, { 'Content-Type': 'text/html' });
+        return res.end('ok');
+    }
+    else if (req.method !== 'GET' && req.url !== '/metrics') {
+        res.writeHead(404, { 'Content-Type': 'text/html' });
+        return res.end('Not Found.');
+    } 
 
   getPayload()
     .then(payload => {
