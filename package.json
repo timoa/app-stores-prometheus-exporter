@@ -3,11 +3,11 @@
   "version": "0.2.0",
   "description": "Prometheus exporter that exports metrics (score, ratings, reviews, app version, etc.) from Apple App Store and Google Play (and more in the future).",
   "scripts": {
-    "start": "node exporter",
+    "start": "node src/exporter",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "appstores-exporter": "./exporter.js"
+    "appstores-exporter": "./src/exporter.js"
   },
   "repository": {
     "type": "git",
@@ -38,9 +38,5 @@
   "engines": {
     "node": ">=8.0"
   },
-  "os": [
-    "linux",
-    "win32",
-    "darwin"
-  ]
+  "os": ["linux", "win32", "darwin"]
 }
