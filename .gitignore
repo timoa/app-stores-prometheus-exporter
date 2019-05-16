@@ -65,5 +65,5 @@ typings/
 
 # Ignore existing configuration file
 # Remove it from this file if you want to save them on your Git repo
-config/apps.json
-config/config.json
+src/config/apps.json
+src/config/config.json
