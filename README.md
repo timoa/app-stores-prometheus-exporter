@@ -1,5 +1,16 @@
 # Mobile app stores Prometheus Exporter (iTunes & Google Play)
 
+[![Build Status][travis-badge]][travis-url]
+[![Docker Pulls][docker-badge]][docker-url]
+[![Quality Gate Status][sonarcloud-status-badge]][sonarcloud-url]
+[![Security Rating][sonarcloud-security-badge]][sonarcloud-url]
+[![Maintainability Rating][sonarcloud-maintainability-badge]][sonarcloud-url]
+
+[![Bugs][sonarcloud-bugs-badge]][sonarcloud-url]
+[![Code Smells][sonarcloud-codesmells-badge]][sonarcloud-url]
+[![Coverage][sonarcloud-coverage-badge]][sonarcloud-url]
+[![Duplicated Lines (%)][sonarcloud-duplicated-badge]][sonarcloud-url]
+
 [![License: MIT][badge-license]][link-license]
 
 ![Grafana dashboard that uses the App Stores Prometheus Exporter][image-dashboard-app]
@@ -354,6 +365,19 @@ Depending of the number of apps you will monitor, it will be better to set the s
 - Add support to Microsoft Store
 - Add support to Amazon Appstore
 
+[sonarcloud]: https://sonarcloud.io/about
+[travis-badge]: https://travis-ci.org/timoa/app-stores-prometheus-exporter.svg?branch=master
+[travis-url]: https://travis-ci.org/timoa/app-stores-prometheus-exporter
+[docker-badge]: https://img.shields.io/docker/pulls/timoa/app-stores-prometheus-exporter.svg
+[docker-url]: https://hub.docker.com/r/timoa/app-stores-prometheus-exporter
+[sonarcloud-url]: https://sonarcloud.io/dashboard?id=timoa_app-stores-prometheus-exporter
+[sonarcloud-status-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=alert_status
+[sonarcloud-security-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=security_rating
+[sonarcloud-maintainability-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=sqale_rating
+[sonarcloud-bugs-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=bugs
+[sonarcloud-codesmells-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=code_smells
+[sonarcloud-coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=coverage
+[sonarcloud-duplicated-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=duplicated_lines_density
 [badge-license]: https://img.shields.io/badge/License-MIT-blue.svg
 [image-dashboard-app]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/doc/images/grafana-app-stores-per-app.png
 [link-license]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/LICENSE
