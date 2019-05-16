@@ -366,8 +366,8 @@ Depending of the number of apps you will monitor, it will be better to set the s
 - Add support to Amazon Appstore
 
 [sonarcloud]: https://sonarcloud.io/about
-[travis-badge]: https://travis-ci.org/timoa/app-stores-prometheus-exporter.svg?branch=master
-[travis-url]: https://travis-ci.org/timoa/app-stores-prometheus-exporter
+[travis-badge]: https://travis-ci.com/timoa/app-stores-prometheus-exporter.svg?branch=master
+[travis-url]: https://travis-ci.com/timoa/app-stores-prometheus-exporter
 [docker-badge]: https://img.shields.io/docker/pulls/timoa/app-stores-prometheus-exporter.svg
 [docker-url]: https://hub.docker.com/r/timoa/app-stores-prometheus-exporter
 [sonarcloud-url]: https://sonarcloud.io/dashboard?id=timoa_app-stores-prometheus-exporter
