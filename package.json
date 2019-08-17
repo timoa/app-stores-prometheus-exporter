@@ -15,7 +15,6 @@
   },
   "keywords": [
     "prometheus",
-    "prometheus",
     "exporter",
     "itunes-store",
     "google-play"
@@ -31,9 +30,9 @@
   },
   "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
   "dependencies": {
-    "app-store-scraper": "0.16.0",
-    "google-play-scraper": "6.2.6",
-    "prom-client": "11.3.0"
+    "app-store-scraper": "^0.16.0",
+    "google-play-scraper": "^6.2.7",
+    "prom-client": "^11.5.3"
   },
   "engines": {
     "node": ">=8.0"
@@ -44,14 +43,14 @@
     "darwin"
   ],
   "devDependencies": {
-    "acorn": "^6.0.4",
+    "acorn": "^6.3.0",
     "acorn-jsx": "^5.0.0",
     "chai": "^4.2.0",
     "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "espree": "^4.1.0",
     "mocha": "^5.2.0"
   }
