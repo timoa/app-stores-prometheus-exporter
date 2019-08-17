@@ -5,13 +5,13 @@ const path = require('path');
 
 // Check if apps.sample.json has been renamed
 if (!fs.existsSync(path.resolve(__dirname, 'config/apps.json'))) {
-  console.log('Please rename the file "config/apps.sample.json" => "config/apps.json"');
+  console.log('Please rename the file "src/config/apps.sample.json" => "src/config/apps.json"');
   process.exit(0);
 }
 
 // Check if config.sample.json has been renamed
 if (!fs.existsSync(path.resolve(__dirname, 'config/config.json'))) {
-  console.log('Please rename the file "config/config.sample.json" => "config/config.json"');
+  console.log('Please rename the file "src/config/config.sample.json" => "src/config/config.json"');
   process.exit(0);
 }
 
@@ -39,28 +39,27 @@ server.listen(9514);
 server.setTimeout(30000);
 
 server.on('request', (req, res) => {
-  let response = {};
-  // Only allowed to poll prometheus metrics.
-    if (req.method === 'HEAD') {
-        res.writeHead(204, { 'Content-Type': 'text/html' });
-        return res.end('ok');
-    }
-    else if (req.method !== 'GET' && req.url !== '/metrics') {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        return res.end('Not Found.');
-    } 
+  // Docker monitoring
+  if (req.method === 'HEAD') {
+    res.writeHead(204, { 'Content-Type': 'text/html' });
+    return res.end('ok');
+  }
+
+  // Only allowed to poll prometheus metrics
+  if (req.method !== 'GET' && req.url !== '/metrics') {
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    return res.end('Not Found.');
+  }
 
   getPayload()
     .then((payload) => {
-      res.setHeader('Content-Type', prometheus.getContentType());
-      response = payload;
+      res.setHeader('Content-Type', prometheus.getContentType);
+      return res.end(payload);
     })
     .catch((err) => {
       res.writeHead(500, { 'Content-Type': 'text/html' });
-      response = err;
+      return res.end(err);
     });
-
-  return res.end(response);
 });
 
 server.on('listening', () => {

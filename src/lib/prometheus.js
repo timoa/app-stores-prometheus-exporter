@@ -213,15 +213,13 @@ module.exports = {
   init,
 
   // Get the Prometheus metrics
-  getMetrics: () => {
-    return new Promise((resolve, reject) => {
-      getStoresData()
-        .then(() => {
-          resolve(register.metrics());
-        })
-        .catch(reject);
-    });
-  },
+  getMetrics: () => new Promise((resolve, reject) => {
+    getStoresData()
+      .then(() => {
+        resolve(register.metrics());
+      })
+      .catch(reject);
+  }),
 
   // Get the Prometheus Export content type with format revision
   getContentType: register.contentType,
