@@ -11,6 +11,8 @@ before_script:
 - docker-compose up -d
 - docker ps -a
 script:
+- cp src/config/apps.sample.json src/config/apps.json
+- cp src/config/config.sample.json src/config/config.json
 - npm run test:coverage
 - npm run test:functional
 - bash scripts/sonar_scanner.sh
