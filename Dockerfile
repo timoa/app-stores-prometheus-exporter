@@ -24,7 +24,7 @@ WORKDIR /opt/app/
 COPY ./ /opt/app/
 
 HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
-      CMD node /opt/app/healthcheck.js
+      CMD npm run docker:status
 
 RUN \
       npm install --production --unsafe-perm && \
