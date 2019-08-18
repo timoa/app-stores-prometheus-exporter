@@ -63,6 +63,10 @@ typings/
 # Visual Studio Code
 .vscode
 
+# SonarQube
+.sonarlint
+.scannerwork
+
 # Ignore existing configuration file
 # Remove it from this file if you want to save them on your Git repo
 src/config/apps.json
