@@ -3,16 +3,18 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const logger = require('./lib/logger');
+
 // Check if apps.sample.json has been renamed
 if (!fs.existsSync(path.resolve(__dirname, 'config/apps.json'))) {
-  console.log('Please rename the file "src/config/apps.sample.json" => "src/config/apps.json"');
-  process.exit(0);
+  logger.error('Please rename the file "src/config/apps.sample.json" => "src/config/apps.json"');
+  process.exit(1);
 }
 
 // Check if config.sample.json has been renamed
 if (!fs.existsSync(path.resolve(__dirname, 'config/config.json'))) {
-  console.log('Please rename the file "src/config/config.sample.json" => "src/config/config.json"');
-  process.exit(0);
+  logger.error('Please rename the file "src/config/config.sample.json" => "src/config/config.json"');
+  process.exit(1);
 }
 
 const prometheus = require('./lib/prometheus');
@@ -39,31 +41,27 @@ server.listen(9514);
 server.setTimeout(30000);
 
 server.on('request', (req, res) => {
-  // Docker monitoring
-  if (req.method === 'HEAD') {
+  if (req.method === 'GET' && req.url === '/metrics') {
+    getPayload()
+      .then((payload) => {
+        res.setHeader('Content-Type', prometheus.getContentType);
+        res.end(payload);
+      })
+      .catch((err) => {
+        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.end(err);
+      });
+  } else if (req.method === 'HEAD') { // Healthcheck
     res.writeHead(204, { 'Content-Type': 'text/html' });
-    return res.end('ok');
-  }
-
-  // Only allowed to poll prometheus metrics
-  if (req.method !== 'GET' && req.url !== '/metrics') {
+    res.end('ok');
+  } else { // Only allowed to poll prometheus metrics
     res.writeHead(404, { 'Content-Type': 'text/html' });
-    return res.end('Not Found.');
+    res.end('Not Found.');
   }
-
-  getPayload()
-    .then((payload) => {
-      res.setHeader('Content-Type', prometheus.getContentType);
-      return res.end(payload);
-    })
-    .catch((err) => {
-      res.writeHead(500, { 'Content-Type': 'text/html' });
-      return res.end(err);
-    });
 });
 
 server.on('listening', () => {
-  console.log(`Prometheus App Stores Exporter is listening on http://localhost:${server.address().port}`);
+  logger.info(`Prometheus App Stores Exporter is listening on http://localhost:${server.address().port}`);
 });
 
 // Graceful shutdown

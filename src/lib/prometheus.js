@@ -27,11 +27,11 @@ const gauges = {};
  */
 function getEnabledMetrics(store) {
   const enabledMetrics = [];
-  for (const metric in config.metrics) {
+  Object.keys(config.metrics).forEach((metric) => {
     if (config.metrics[metric] && metrics[metric].compatibility.includes(store)) {
       enabledMetrics.push(metric);
     }
-  }
+  });
 
   return enabledMetrics;
 }
@@ -90,21 +90,20 @@ function mapDataToMetric(name, data) {
  */
 function setMetrics(store, country, data) {
   return new Promise((resolve, reject) => {
-    getEnabledMetrics(store).forEach((metric) => {
-      gauges[metric].set({
-        store,
-        country,
-        app: data.appId,
-        version: data.version,
-      }, (data[metric]) ? data[metric] : mapDataToMetric(metric, data));
-    });
-    resolve();
-  })
-    .catch((err) => {
-      reject({
-        error: `Prometheus Client error when setting a metric for the app "${data.appId}" (${data.country}): ${err.message}`,
+    try {
+      getEnabledMetrics(store).forEach((metric) => {
+        gauges[metric].set({
+          store,
+          country,
+          app: data.appId,
+          version: data.version,
+        }, (data[metric]) ? data[metric] : mapDataToMetric(metric, data));
       });
-    });
+      resolve();
+    } catch (err) {
+      reject(new Error(`Prometheus Client error when setting a metric for the app "${data.appId}" (${data.country}): ${err.message}`));
+    }
+  });
 }
 
 /**
@@ -127,9 +126,7 @@ function getAppData(store, opt) {
             .catch(reject);
         })
         .catch((err) => {
-          reject({
-            error: `Itunes Scraper error for the app "${opt.appId}" (${opt.country}): ${err.message}`,
-          });
+          reject(new Error(`Itunes Scraper error for the app "${opt.appId}" (${opt.country}): ${err.message}`));
         });
     }
 
@@ -144,9 +141,7 @@ function getAppData(store, opt) {
             .catch(reject);
         })
         .catch((err) => {
-          reject({
-            error: `Google Play Scraper error for the app "${opt.appId}"" (${opt.country}): ${err.message}`,
-          });
+          reject(new Error(`Google Play Scraper error for the app "${opt.appId}"" (${opt.country}): ${err.message}`));
         });
     }
   });
@@ -158,9 +153,7 @@ function getAppData(store, opt) {
  * @param {String} store
  */
 async function getAppsData(store) {
-  const promises = apps[store].map((opt) => {
-    return getAppData(store, opt);
-  });
+  const promises = apps[store].map(opt => getAppData(store, opt));
 
   await Promise.all(promises)
     .catch((err) => {
@@ -196,7 +189,7 @@ function init() {
   // Load the stores enabled
   config.stores.forEach((store) => {
     // Metrics enabled only
-    for (const metric in config.metrics) {
+    Object.keys(config.metrics).forEach((metric) => {
       if (!gauges[metric] && getEnabledMetrics(store).includes(metric)) {
         // Create gauge
         gauges[metric] = createGauge({
@@ -204,7 +197,7 @@ function init() {
           help: metrics[metric].help,
         });
       }
-    }
+    });
   });
 }
 
