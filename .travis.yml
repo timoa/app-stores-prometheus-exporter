@@ -11,10 +11,10 @@ before_script:
 - cp src/config/config.sample.json src/config/config.json
 - npm run test:coverage
 - bash scripts/sonar_scanner.sh
+script:
 - docker build -t timoa/app-stores-prometheus-exporter .
 - docker-compose up -d
 - docker ps -a
-script:
 - npm run test:functional
 after_script:
 - docker-compose down
