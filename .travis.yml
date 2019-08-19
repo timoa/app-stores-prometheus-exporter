@@ -15,7 +15,6 @@ script:
 - docker build -t timoa/app-stores-prometheus-exporter .
 - docker-compose up -d
 - docker ps -a
-- npm run test:functional
 after_script:
 - docker-compose down
 deploy:
