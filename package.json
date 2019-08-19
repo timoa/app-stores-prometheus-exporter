@@ -38,7 +38,7 @@
     "app-store-scraper": "^0.16.0",
     "google-play-scraper": "^6.2.7",
     "prom-client": "^11.5.3",
-    "uuid": "^3.3.2",
+    "uuid": "^3.3.3",
     "winston": "^3.2.1"
   },
   "engines": {
