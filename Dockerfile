@@ -1,4 +1,4 @@
-ARG nodeVersion=9.11.1
+ARG nodeVersion=10.16.3
 FROM node:${nodeVersion}-alpine
 ARG appPort=9514
 
