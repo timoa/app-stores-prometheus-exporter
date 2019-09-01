@@ -7,8 +7,8 @@ addons:
   sonarcloud:
     organization: timoa-github
 before_script:
-- cp src/config/apps.sample.json src/config/apps.json
-- cp src/config/config.sample.json src/config/config.json
+- cp src/examples/apps.json config/apps.json
+- cp src/examples/config.json config/config.json
 - npm run test:coverage
 - bash scripts/sonar_scanner.sh
 script:
