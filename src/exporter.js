@@ -5,15 +5,15 @@ const path = require('path');
 
 const logger = require('./lib/logger');
 
-// Check if apps.sample.json has been renamed
-if (!fs.existsSync(path.resolve(__dirname, 'config/apps.json'))) {
-  logger.error('Please rename the file "src/config/apps.sample.json" => "src/config/apps.json"');
+// Check if there is a `apps.json` in the config folder
+if (!fs.existsSync(path.resolve(__dirname, '../config/apps.json'))) {
+  logger.error('Please copy the file "src/examples/apps.json" => "config/apps.json"');
   process.exit(1);
 }
 
-// Check if config.sample.json has been renamed
-if (!fs.existsSync(path.resolve(__dirname, 'config/config.json'))) {
-  logger.error('Please rename the file "src/config/config.sample.json" => "src/config/config.json"');
+// Check if there is a `config.json` in the config folder
+if (!fs.existsSync(path.resolve(__dirname, '../config/config.json'))) {
+  logger.error('Please copy the file "src/examples/config.json" => "config/config.json"');
   process.exit(1);
 }
 

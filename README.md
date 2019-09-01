@@ -308,16 +308,16 @@ cd app-stores-prometheus-exporter
 npm install
 ```
 
-Rename the configuration files
+Copy the configuration files
 
 | From || To |
 |---|---|---|
-|config/apps.**sample**.json|=>|config/apps.json|
-|config/config.**sample**.json|=>|config/config.json|
+|src/examples/apps.json|=>|config/apps.json|
+|src/examples/config.json|=>|config/config.json|
 
 ``` bash
-mv config/apps.sample.json config/apps.json
-mv config/config.sample.json config/config.json
+mv src/examples/apps.json config/apps.json
+mv src/examples/config.json config/config.json
 ```
 
 Start the App Stores Prometheus Exporter:

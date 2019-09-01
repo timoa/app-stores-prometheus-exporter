@@ -66,8 +66,3 @@ typings/
 # SonarQube
 .sonarlint
 .scannerwork
-
-# Ignore existing configuration file
-# Remove it from this file if you want to save them on your Git repo
-src/config/apps.json
-src/config/config.json

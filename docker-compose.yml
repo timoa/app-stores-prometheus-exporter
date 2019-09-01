@@ -1,10 +1,15 @@
-version: '2'
+version: '3.3'
 
 services:
   api:
     image: timoa/app-stores-prometheus-exporter:latest
     environment:
       - NODE_ENV=production
+    volumes:
+      - ./config:/opt/app/config
     ports:
       - 9514:9514
     restart: always
+
+volumes:
+  config:

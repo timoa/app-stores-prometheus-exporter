@@ -6,8 +6,8 @@ const itunes = require('app-store-scraper');
 const gplay = require('google-play-scraper');
 
 // Config files
-const config = require('../config/config.json');
-const apps = require('../config/apps.json');
+const config = require('../../config/config.json');
+const apps = require('../../config/apps.json');
 const metrics = require('../config/metrics.json');
 
 const register = new client.Registry();

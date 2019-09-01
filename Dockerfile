@@ -28,9 +28,7 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
 
 RUN \
       npm install --production --unsafe-perm && \
-      npm cache clean --force && \
-      mv /opt/app/src/config/apps.sample.json /opt/app/src/config/apps.json && \
-      mv /opt/app/src/config/config.sample.json /opt/app/src/config/config.json
+      npm cache clean --force
 
 RUN chown -R app-user /opt/app
 USER app-user
