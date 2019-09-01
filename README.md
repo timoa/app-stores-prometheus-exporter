@@ -264,38 +264,6 @@ Now, you can see the Prometheus metrics from your browser or command line at [ht
 curl http://localhost:9514
 ```
 
-#### Customise with your own mobile apps
-
-To customise the Docker image with your apps, you will need to follow the [instructions from source code installation](#from-sources) and replace this lines under the `Dockerfile` file:
-
-``` bash
-RUN \
-      npm install --production --unsafe-perm && \
-      npm cache clean --force && \
-      mv /opt/app/config/apps.sample.json /opt/app/config/apps.json && \
-      mv /opt/app/config/config.sample.json /opt/app/config/config.json
-```
-
-by this ones:
-
-``` bash
-RUN \
-      npm install --production --unsafe-perm && \
-      npm cache clean --force
-```
-
-After that change, build the new Docker image:
-
-``` bash
-docker build -t app-stores-prometheus-exporter .
-```
-
-and test your new Docker image:
-
-``` bash
-docker run -p 9514:9514 app-stores-prometheus-exporter:latest
-```
-
 ### NPM install
 
 WIP
