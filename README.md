@@ -251,14 +251,33 @@ appstores_ratings_5_total{store="gplay",country="us",app="com.instagram.android"
 
 #### Default with demo apps
 
-The simplest way to test this Prometheus exporter is by using Docker. The command below will exports the metrics from the default apps from the `config/apps.json`.
+The simplest way to test this Prometheus exporter is by using Docker. The command below will exports the metrics from the default apps from the `src/examples/apps.json`.
 
 ``` bash
-docker pull timoa/app-stores-prometheus-exporter
-docker run -p 9514:9514 timoa/app-stores-prometheus-exporter:latest
+docker-compose up
 ```
 
 Now, you can see the Prometheus metrics from your browser or command line at [http://localhost:9514](http://localhost:9514)
+
+``` bash
+curl http://localhost:9514
+```
+
+#### Customize with yours apps
+
+Simply copy the config files from the `src/examples` folder to the `config` folder (root of the project):
+
+| From || To |
+|---|---|---|
+|src/examples/apps.json|=>|config/apps.json|
+|src/examples/config.json|=>|config/config.json|
+
+Now, restart the Docker container to see the changes:
+
+``` bash
+docker-compose down
+docker-compose up
+```
 
 ``` bash
 curl http://localhost:9514
