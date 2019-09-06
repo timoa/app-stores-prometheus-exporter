@@ -27,21 +27,21 @@ For this early version, this Prometheus Exporter exports this data:
 
 ### iTunes
 
-- **Score** from first version
-- Total Number of **Reviews**
-- **Current Version Score**
-- **Current Version number of Reviews**
+* **Score** from first version
+* Total Number of **Reviews**
+* **Current Version Score**
+* **Current Version number of Reviews**
 
 ### Google Play
 
-- **Score** from first version
-- Total Number of **Reviews**
-- Total Number of **Ratings**
-- Total Number of **Ratings with 1 star**
-- Total Number of **Ratings with 2 stars**
-- Total Number of **Ratings with 3 stars**
-- Total Number of **Ratings with 4 stars**
-- Total Number of **Ratings with 5 stars**
+* **Score** from first version
+* Total Number of **Reviews**
+* Total Number of **Ratings**
+* Total Number of **Ratings with 1 star**
+* Total Number of **Ratings with 2 stars**
+* Total Number of **Ratings with 3 stars**
+* Total Number of **Ratings with 4 stars**
+* Total Number of **Ratings with 5 stars**
 
 ## Metrics exposed to Prometheus
 
@@ -243,7 +243,7 @@ appstores_ratings_5_total{store="gplay",country="us",app="com.instagram.android"
 
 ## Requirements
 
-- NodeJS >=8
+* NodeJS >=10
 
 ## Installation
 
@@ -257,10 +257,10 @@ The simplest way to test this Prometheus exporter is by using Docker. The comman
 docker-compose up
 ```
 
-Now, you can see the Prometheus metrics from your browser or command line at [http://localhost:9514](http://localhost:9514)
+Now, you can see the Prometheus metrics from your browser or command line at [http://localhost:9514/metrics](http://localhost:9514/metrics)
 
 ``` bash
-curl http://localhost:9514
+curl http://localhost:9514/metrics
 ```
 
 #### Customize with yours apps
@@ -280,7 +280,7 @@ docker-compose up
 ```
 
 ``` bash
-curl http://localhost:9514
+curl http://localhost:9514/metrics
 ```
 
 ### NPM install
@@ -342,15 +342,24 @@ Since the mobile app stores are using cache for the app details pages, it doesn'
 
 Depending of the number of apps you will monitor, it will be better to set the scrape interval to 5m or more.
 
+## Dashboards
+
+The following Grafana dashboards are available in the Grafana Dashboards repository and can be install in your own Grafana instance (just copy the ID to import it):
+
+* [Mobile App Stores - Per App][link-grafana-dashboard-per-app]
+* [Mobile App Stores - Score][link-grafana-dashboard-score]
+* [Mobile App Stores - Reviews][link-grafana-dashboard-reviews]
+* [Mobile App Stores - Versions][link-grafana-dashboard-versions]
+
 ## TODO
 
-- Better test coverage
-- Grafana dashboards screenshots and links
-- Refactoring of the code to add more stores as plugins
-- Simplify multiple countries configuration
-- Add support to Mac App Store
-- Add support to Microsoft Store
-- Add support to Amazon Appstore
+* Better test coverage
+* Grafana dashboards screenshots and links
+* Refactoring of the code to add more stores as plugins
+* Simplify multiple countries configuration
+* Add support to Mac App Store
+* Add support to Microsoft Store
+* Add support to Amazon Appstore
 
 [sonarcloud]: https://sonarcloud.io/about
 [travis-badge]: https://travis-ci.com/timoa/app-stores-prometheus-exporter.svg?branch=master
@@ -370,3 +379,8 @@ Depending of the number of apps you will monitor, it will be better to set the s
 [link-license]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/LICENSE
 [link-google-play-scraper]: https://github.com/facundoolano/google-play-scraper
 [link-app-store-scraper]: https://github.com/facundoolano/app-store-scraper
+[link-grafana-dashboards]: https://grafana.com/orgs/timoa/dashboards
+[link-grafana-dashboard-per-app]: https://grafana.com/grafana/dashboards/10100
+[link-grafana-dashboard-score]: https://grafana.com/grafana/dashboards/10820
+[link-grafana-dashboard-reviews]: https://grafana.com/grafana/dashboards/10821
+[link-grafana-dashboard-versions]: https://grafana.com/grafana/dashboards/10822
