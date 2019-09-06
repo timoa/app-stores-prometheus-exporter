@@ -32,7 +32,6 @@ describe('Exporter', function () {
       .end((err, res) => {
         expect(res.status).to.have.be.equals(404);
         expect(res.header['content-type']).to.equal('text/html');
-        expect(res.text).to.equal('Not Found.');
         done();
       });
   });
