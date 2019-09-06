@@ -342,6 +342,36 @@ Since the mobile app stores are using cache for the app details pages, it doesn'
 
 Depending of the number of apps you will monitor, it will be better to set the scrape interval to 5m or more.
 
+## Tests
+
+### API
+
+You can launch the Docker container or node.js app and test the endpoints with Postman:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/efda18b74fd7f4bc3034)
+
+### NPM
+
+#### Unit-tests
+
+``` bash
+npm test
+```
+
+#### Coverage
+
+``` bash
+npm run test:coverage
+```
+
+#### Functional
+
+``` bash
+npm run test:functional
+```
+
+*Will be replace by `chai-http` soon.*
+
 ## Dashboards
 
 The following Grafana dashboards are available in the Grafana Dashboards repository and can be install in your own Grafana instance (just copy the ID to import it):
