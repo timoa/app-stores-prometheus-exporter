@@ -1,4 +1,3 @@
-
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -7,13 +6,17 @@ const logger = require('./lib/logger');
 
 // Check if there is a `apps.json` in the config folder
 if (!fs.existsSync(path.resolve(__dirname, '../config/apps.json'))) {
-  logger.error('Please copy the file "src/examples/apps.json" => "config/apps.json"');
+  logger.error(
+    'Please copy the file "src/examples/apps.json" => "config/apps.json"',
+  );
   process.exit(1);
 }
 
 // Check if there is a `config.json` in the config folder
 if (!fs.existsSync(path.resolve(__dirname, '../config/config.json'))) {
-  logger.error('Please copy the file "src/examples/config.json" => "config/config.json"');
+  logger.error(
+    'Please copy the file "src/examples/config.json" => "config/config.json"',
+  );
   process.exit(1);
 }
 
@@ -24,7 +27,8 @@ prometheus.init();
 
 function getPayload() {
   return new Promise((resolve, reject) => {
-    prometheus.getMetrics()
+    prometheus
+      .getMetrics()
       .then(resolve)
       .catch((err) => {
         reject(err.message);
@@ -51,17 +55,26 @@ server.on('request', (req, res) => {
         res.writeHead(500, { 'Content-Type': 'text/html' });
         res.end(err);
       });
-  } else if (req.method === 'HEAD') { // Healthcheck
+  } else if (req.method === 'HEAD') {
+    // Healthcheck
     res.writeHead(204, { 'Content-Type': 'text/html' });
     res.end('ok');
-  } else { // Only allowed to poll prometheus metrics
+  } else {
+    // Only allowed to poll prometheus metrics
+    const html = fs.readFileSync(`${__dirname}/html/404.html`, {
+      encoding: 'utf8',
+    });
     res.writeHead(404, { 'Content-Type': 'text/html' });
-    res.end('Not Found.');
+    res.end(html);
   }
 });
 
 server.on('listening', () => {
-  logger.info(`Prometheus App Stores Exporter is listening on http://localhost:${server.address().port}`);
+  logger.info(
+    `Prometheus App Stores Exporter is listening on http://localhost:${
+      server.address().port
+    }`,
+  );
 });
 
 // Graceful shutdown
