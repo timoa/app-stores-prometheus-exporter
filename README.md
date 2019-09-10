@@ -405,7 +405,7 @@ The following Grafana dashboards are available in the Grafana Dashboards reposit
 [sonarcloud-coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=coverage
 [sonarcloud-duplicated-badge]: https://sonarcloud.io/api/project_badges/measure?project=timoa_app-stores-prometheus-exporter&metric=duplicated_lines_density
 [badge-license]: https://img.shields.io/badge/License-MIT-blue.svg
-[image-dashboard-app]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/doc/images/grafana-app-stores-per-app.jpg
+[image-dashboard-app]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/doc/images/grafana-app-stores-per-app-screen.jpg
 [link-license]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/LICENSE
 [link-google-play-scraper]: https://github.com/facundoolano/google-play-scraper
 [link-app-store-scraper]: https://github.com/facundoolano/app-store-scraper
