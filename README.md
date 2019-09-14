@@ -269,8 +269,8 @@ Simply copy the config files from the `src/examples` folder to the `config` fold
 
 | From || To |
 |---|---|---|
-|src/examples/apps.json|=>|config/apps.json|
-|src/examples/config.json|=>|config/config.json|
+|`src/examples/apps.json`|=>|`config/apps.json`|
+|`src/examples/config.json`|=>|`config/config.json`|
 
 Now, restart the Docker container to see the changes:
 
@@ -299,8 +299,8 @@ Copy the configuration files
 
 | From || To |
 |---|---|---|
-|src/examples/apps.json|=>|config/apps.json|
-|src/examples/config.json|=>|config/config.json|
+|`src/examples/apps.json`|=>|`config/apps.json`|
+|`src/examples/config.json`|=>|`config/config.json`|
 
 ``` bash
 mv src/examples/apps.json config/apps.json
@@ -384,12 +384,12 @@ The following Grafana dashboards are available in the Grafana Dashboards reposit
 ## TODO
 
 * Better test coverage
-* Grafana dashboards screenshots and links
 * Refactoring of the code to add more stores as plugins
 * Simplify multiple countries configuration
 * Add support to Mac App Store
 * Add support to Microsoft Store
 * Add support to Amazon Appstore
+* Add other metrics from official App Store and Google Play API (downloads, active installations, etc.)
 
 [sonarcloud]: https://sonarcloud.io/about
 [travis-badge]: https://travis-ci.com/timoa/app-stores-prometheus-exporter.svg?branch=master
