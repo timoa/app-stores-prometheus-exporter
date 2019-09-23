@@ -257,7 +257,7 @@ The simplest way to test this Prometheus exporter is by using Docker. The comman
 docker-compose up
 ```
 
-Now, you can see the Prometheus metrics from your browser or command line at [http://localhost:9514/metrics](http://localhost:9514/metrics)
+Now, you can see the Prometheus metrics from your browser or command line at [http://localhost:9514/metrics][app-stores-prometheus-exporter-local]
 
 ``` bash
 curl http://localhost:9514/metrics
@@ -407,6 +407,7 @@ The following Grafana dashboards are available in the Grafana Dashboards reposit
 [badge-license]: https://img.shields.io/badge/License-MIT-blue.svg
 [image-dashboard-app]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/doc/images/grafana-app-stores-per-app-screen.jpg
 [link-license]: https://raw.githubusercontent.com/timoa/app-stores-prometheus-exporter/master/LICENSE
+[app-stores-prometheus-exporter-local]: http://localhost:9514/metrics
 [link-google-play-scraper]: https://github.com/facundoolano/google-play-scraper
 [link-app-store-scraper]: https://github.com/facundoolano/app-store-scraper
 [link-grafana-dashboards]: https://grafana.com/orgs/timoa/dashboards
