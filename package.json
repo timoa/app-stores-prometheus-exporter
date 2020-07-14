@@ -9,7 +9,9 @@
     "test:coverage": "./node_modules/.bin/nyc npm test",
     "test:functional": "./node_modules/.bin/mocha --reporter spec ./test/functional",
     "test:all": "./node_modules/.bin/run-s test:coverage",
-    "docker:status": "node src/healthcheck"
+    "docker:status": "node src/healthcheck",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bin": {
     "appstores-exporter": "./src/exporter.js"
@@ -39,7 +41,8 @@
     "google-play-scraper": "^7.1.2",
     "prom-client": "^11.5.3",
     "uuid": "^3.3.3",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "snyk": "^1.316.1"
   },
   "engines": {
     "node": ">=8.0"
@@ -84,5 +87,6 @@
       "coverage/**"
     ],
     "all": true
-  }
+  },
+  "snyk": true
 }
