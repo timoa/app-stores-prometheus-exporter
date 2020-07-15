@@ -157,7 +157,7 @@ async function getAppsData(store) {
 
   await Promise.all(promises)
     .catch((err) => {
-      throw new Error(err.error);
+      throw new Error(err.message);
     });
 }
 

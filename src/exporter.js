@@ -53,6 +53,7 @@ server.on('request', (req, res) => {
       })
       .catch((err) => {
         res.writeHead(500, { 'Content-Type': 'text/html' });
+        logger.error(err);
         res.end(err);
       });
   } else if (req.method === 'HEAD') {
