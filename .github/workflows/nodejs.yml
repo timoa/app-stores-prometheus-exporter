@@ -1,0 +1,108 @@
+name: Build
+
+on: [push]
+
+jobs:
+
+  # -- TESTS ------------------------------------------------------------------
+  tests:
+    runs-on: ubuntu-latest
+  
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Copy Playlists & Inventory examples
+        run: |
+          cp src/examples/apps.json config/apps.json
+          cp src/examples/config.json config/config.json
+
+
+      - name: Run Unit-Tests + Code Coverage
+        run: npm run test:coverage
+
+      - name: Save Code Coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage
+          path: coverage
+
+  sonarcloud:
+    runs-on: ubuntu-latest
+    needs: tests
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Download Code Coverage
+        uses: actions/download-artifact@v2
+        with:
+          name: code-coverage
+          path: coverage
+
+      - name: Get App Version
+        run: ./scripts/version.sh
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  # functional-tests:
+  #   runs-on: ubuntu-latest
+  #   needs: tests
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: Build docker image
+  #       run: docker build -t timoa/chrome-tab-rotate-server .
+      
+  #     - name: Start Docker container
+  #       run: docker-compose up -d
+
+  #     - name: Check Docker container status
+  #       run: docker ps -a
+
+  #     - name: Install dependencies
+  #       run: npm install
+
+  #     - name: Run Functional tests
+  #       run: npm run test:functional
+      
+  #     - name: Stop Docker container
+  #       run: docker-compose down
+
+  # -- BUILD ------------------------------------------------------------------
+  build:
+    runs-on: ubuntu-latest
+    needs: tests
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Docker Build
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: timoa/app-stores-prometheus-exporter
+          tags: latest
+
