@@ -119,6 +119,7 @@ function getAppData(store, opt) {
       itunes.app({
         appId: opt.appId,
         country: opt.country, // TODO: Support more countries
+        ratings: true,
       })
         .then((data) => {
           setMetrics(store, opt.country, data) // TODO: Support more countries
