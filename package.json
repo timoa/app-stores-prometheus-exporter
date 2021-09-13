@@ -40,7 +40,7 @@
     "app-store-scraper": "^0.16.3",
     "google-play-scraper": "^8.0.2",
     "prom-client": "^11.5.3",
-    "snyk": "^1.465.0",
+    "snyk": "^1.685.0",
     "uuid": "^3.4.0",
     "winston": "^3.3.3"
   },
