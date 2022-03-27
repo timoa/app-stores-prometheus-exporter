@@ -33,7 +33,7 @@ jobs:
         run: npm run test:coverage
 
       - name: Save Code Coverage
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # tag=v2
+        uses: actions/upload-artifact@97b7dace6c8d860ce9708aba808be6a2ee4cbc3a # tag=v2.0.1
         with:
           name: code-coverage
           path: coverage
