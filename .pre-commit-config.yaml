@@ -1,0 +1,29 @@
+repos:
+
+  # Default
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-yaml ### Control YAML format
+      - id: check-json ### Control JSON format
+      - id: end-of-file-fixer ###  Fix end of file with one line
+      - id: trailing-whitespace ### Remove end of line spaces
+      - id: check-added-large-files ### Check files size to add only 500ko max
+      - id: check-merge-conflict ### Check if there is already merge conflict(s)
+      - id: detect-private-key ### Detect private keys
+
+  # ESLint
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.10.0
+    hooks:
+      - id: eslint
+        additional_dependencies:
+          - eslint-config-airbnb
+          - eslint-config-prettier
+
+  # Conventional Commit
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v1.2.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
