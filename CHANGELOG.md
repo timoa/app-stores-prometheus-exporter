@@ -1,3 +1,10 @@
+## [0.4.9](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.8...v0.4.9) (2022-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency app-store-scraper to v0.17.0 ([a126659](https://github.com/timoa/app-stores-prometheus-exporter/commit/a126659b4e022dfd2d29d182c92f30a51437dc14))
+
 ## [0.4.8](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.7...v0.4.8) (2022-03-27)
 
 
