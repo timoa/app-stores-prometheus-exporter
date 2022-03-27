@@ -7,7 +7,7 @@ jobs:
   # -- TESTS ------------------------------------------------------------------
   tests:
     runs-on: ubuntu-latest
-  
+
     strategy:
       matrix:
         node-version: [12.x]
@@ -29,7 +29,6 @@ jobs:
           cp src/examples/apps.json config/apps.json
           cp src/examples/config.json config/config.json
 
-
       - name: Run Unit-Tests + Code Coverage
         run: npm run test:coverage
 
@@ -46,7 +45,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Download Code Coverage
         uses: actions/download-artifact@v2
         with:
@@ -62,36 +61,26 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  # functional-tests:
-  #   runs-on: ubuntu-latest
-  #   needs: tests
+  # -- RELEASE ----------------------------------------------------------------
 
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  release:
+    runs-on: ubuntu-latest
+    needs: tests
+    if: github.ref == 'refs/heads/develop'
 
-  #     - name: Build docker image
-  #       run: docker build -t timoa/chrome-tab-rotate-server .
-      
-  #     - name: Start Docker container
-  #       run: docker-compose up -d
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-  #     - name: Check Docker container status
-  #       run: docker ps -a
-
-  #     - name: Install dependencies
-  #       run: npm install
-
-  #     - name: Run Functional tests
-  #       run: npm run test:functional
-      
-  #     - name: Stop Docker container
-  #       run: docker-compose down
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # -- BUILD ------------------------------------------------------------------
   build:
     runs-on: ubuntu-latest
-    needs: tests
+    needs: release
     if: github.ref == 'refs/heads/master'
 
     steps:
@@ -105,4 +94,3 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: timoa/app-stores-prometheus-exporter
           tags: latest
-
