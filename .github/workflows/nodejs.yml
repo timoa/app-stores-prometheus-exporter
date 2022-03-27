@@ -96,4 +96,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: timoa/app-stores-prometheus-exporter
-          tags: latest
+          tags: |
+            ${GITHUB_REF#refs/*/}
+            latest
