@@ -54,7 +54,7 @@
     "darwin"
   ],
   "devDependencies": {
-    "acorn": "6.4.1",
+    "acorn": "6.4.2",
     "acorn-jsx": "5.2.0",
     "chai": "4.2.0",
     "chai-http": "4.3.0",
