@@ -67,6 +67,11 @@
           "package-lock.json"
         ]
       }
+    ],
+    [
+      "@semantic-release/github", {
+        "assignees": "timoa"
+      }
     ]
   ]
 }
