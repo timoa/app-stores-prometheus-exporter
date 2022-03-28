@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@fc9ff49b90869a686df00e922af871c12215986a # tag=v1
         with:
-          node-version: ${{ matrix.node }}
+          version: ${{ matrix.node }}
 
       - name: Install dependencies
         run: npm install
