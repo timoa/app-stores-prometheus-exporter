@@ -43,7 +43,7 @@
     "prom-client": "11.5.3",
     "snyk": "1.868.0",
     "uuid": "3.4.0",
-    "winston": "3.3.4"
+    "winston": "3.6.0"
   },
   "engines": {
     "node": ">=8.0"
