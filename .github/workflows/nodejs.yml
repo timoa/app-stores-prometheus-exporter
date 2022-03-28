@@ -10,16 +10,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: ['12']
 
     steps:
       - name: Checkout
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # tag=v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # tag=v1
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@fc9ff49b90869a686df00e922af871c12215986a # tag=v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
       - name: Install dependencies
         run: npm install
