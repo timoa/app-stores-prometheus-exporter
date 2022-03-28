@@ -46,7 +46,7 @@
     "winston": "3.6.0"
   },
   "engines": {
-    "node": ">=8.0"
+    "node": ">=12.0"
   },
   "os": [
     "linux",
