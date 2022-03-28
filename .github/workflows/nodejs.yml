@@ -39,6 +39,7 @@ jobs:
           name: code-coverage
           path: coverage
 
+  # -- SONARCLOUD -------------------------------------------------------------
   sonarcloud:
     runs-on: ubuntu-latest
     needs: tests
@@ -62,31 +63,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  # -- SAST SCAN --------------------------------------------------------------
-  sast-scan:
-    runs-on: ubuntu-latest
-    needs: tests
-
-    steps:
-      - name: Perform SAST Scan
-        uses: ShiftLeftSecurity/scan-action@v1.3.0
-        env:
-          WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SCAN_AUTO_BUILD: true
-
-      - name: Save reports
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # tag=v2.3.1
-        with:
-          name: reports
-          path: reports
-
   # -- RELEASE ----------------------------------------------------------------
   release:
     runs-on: ubuntu-latest
-    needs:
-      - sonarcloud
-      - sast-scan
+    needs: sonarcloud
     if: github.ref == 'refs/heads/master'
 
     steps:
