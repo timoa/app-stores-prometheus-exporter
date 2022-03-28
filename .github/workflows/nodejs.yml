@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # tag=v2.4.0
 
       - name: Download Code Coverage
-        uses: actions/download-artifact@3be87be14a055c47b01d3bd88f8fe02320a9bb60 # tag=v2.0.10
+        uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # tag=v2.1.0
         with:
           name: code-coverage
           path: coverage
