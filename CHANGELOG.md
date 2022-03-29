@@ -1,3 +1,10 @@
+## [0.4.11](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.10...v0.4.11) (2022-03-29)
+
+
+### Bug Fixes
+
+* **cicd:** fix Docker build with latest GitHub Action ([9549390](https://github.com/timoa/app-stores-prometheus-exporter/commit/95493908f63edb0334437771effdbd5b148e4305))
+
 ## [0.4.10](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.9...v0.4.10) (2022-03-29)
 
 
