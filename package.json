@@ -1,6 +1,6 @@
 {
   "name": "app-stores-prometheus-exporter",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Prometheus exporter that exports metrics (score, ratings, reviews, app version, etc.) from Apple App Store and Google Play (and more in the future).",
   "private": true,
   "scripts": {
@@ -38,15 +38,15 @@
   },
   "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
   "dependencies": {
-    "app-store-scraper": "0.16.3",
+    "app-store-scraper": "0.17.0",
     "google-play-scraper": "8.1.0",
     "prom-client": "11.5.3",
-    "snyk": "1.685.0",
+    "snyk": "1.870.0",
     "uuid": "3.4.0",
-    "winston": "3.3.3"
+    "winston": "3.6.0"
   },
   "engines": {
-    "node": ">=8.0"
+    "node": ">=12.0"
   },
   "os": [
     "linux",
@@ -54,15 +54,15 @@
     "darwin"
   ],
   "devDependencies": {
-    "acorn": "6.4.1",
-    "acorn-jsx": "5.2.0",
-    "chai": "4.2.0",
+    "acorn": "6.4.2",
+    "acorn-jsx": "5.3.2",
+    "chai": "4.3.6",
     "chai-http": "4.3.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.1",
-    "eslint-plugin-import": "2.22.0",
-    "eslint-plugin-jsx-a11y": "6.3.1",
-    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.29.4",
     "espree": "4.1.0",
     "mocha": "7.2.0",
     "npm-run-all": "4.1.5",

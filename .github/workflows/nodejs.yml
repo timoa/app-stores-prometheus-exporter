@@ -10,16 +10,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node: ['12', '14']
 
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # tag=v2
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # tag=v1
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
+          check-latest: true
 
       - name: Install dependencies
         run: npm install
@@ -33,21 +34,22 @@ jobs:
         run: npm run test:coverage
 
       - name: Save Code Coverage
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # tag=v2
+        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
         with:
           name: code-coverage
           path: coverage
 
-  sonarcloud:
+  # -- SONARCLOUD -------------------------------------------------------------
+  code-quality:
     runs-on: ubuntu-latest
     needs: tests
 
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # tag=v2
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
 
       - name: Download Code Coverage
-        uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # tag=v2
+        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3.0.0
         with:
           name: code-coverage
           path: coverage
@@ -61,15 +63,32 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  # -- RELEASE ----------------------------------------------------------------
-
-  release:
+  # -- SEMGREP ----------------------------------------------------------------
+  code-security:
     runs-on: ubuntu-latest
     needs: tests
-    if: contains('
-        refs/heads/master
-        refs/heads/develop
-      ', github.ref)
+    # Skip any PR created by dependabot to avoid permission issues
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+
+      - name: Semgrep SAST Scan
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets
+          auditOn: push
+
+  # -- RELEASE ----------------------------------------------------------------
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - code-quality
+      - code-security
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout
@@ -88,12 +107,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # tag=v2
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
 
       - name: Docker Build
-        uses: docker/build-push-action@3e7a4f6646880c6f63758d73ac32392d323eaf8f # tag=v1
+        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b # tag=v2.9.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: timoa/app-stores-prometheus-exporter
-          tags: latest
+          tags: |
+            ${GITHUB_REF#refs/*/}
+            latest
