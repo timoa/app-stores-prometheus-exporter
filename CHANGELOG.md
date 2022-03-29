@@ -1,3 +1,14 @@
+## [0.4.10](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.9...v0.4.10) (2022-03-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.868.0 ([dc89a5a](https://github.com/timoa/app-stores-prometheus-exporter/commit/dc89a5a8e4ff44671034d76c144bd74b87045f46))
+* **deps:** update dependency snyk to v1.869.0 ([622d927](https://github.com/timoa/app-stores-prometheus-exporter/commit/622d9271c6d7de0deecbdd6f8e6789ea230dbf58))
+* **deps:** update dependency snyk to v1.870.0 ([cc3171b](https://github.com/timoa/app-stores-prometheus-exporter/commit/cc3171b7ebe9c0e13ad4748593494a1567cd673f))
+* **deps:** update dependency winston to v3.3.4 ([62daac3](https://github.com/timoa/app-stores-prometheus-exporter/commit/62daac32048c7187ef6b08c71eb0a780c9c663ee))
+* **deps:** update dependency winston to v3.6.0 ([7255223](https://github.com/timoa/app-stores-prometheus-exporter/commit/7255223a5fbe300d54ab02206d72dddb5f21bce6))
+
 ## [0.4.9](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.8...v0.4.9) (2022-03-27)
 
 
