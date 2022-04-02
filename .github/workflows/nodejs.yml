@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
 
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@5b52f097d36d4b0b2f94ed6de710023fbb8b2236 # tag=v3
+        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  # -- SEMGREP ----------------------------------------------------------------
+  # -- SAST SCAN --------------------------------------------------------------
   code-security:
     runs-on: ubuntu-latest
     needs: tests
@@ -74,13 +74,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
 
-      - name: Semgrep SAST Scan
-        uses: returntocorp/semgrep-action@v1
+      - name: Perform Scan
+        uses: ShiftLeftSecurity/scan-action@master
+
+        env:
+          WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SCAN_ANNOTATE_PR: true
+
+      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
         with:
-          config: >-
-            p/security-audit
-            p/secrets
-          auditOn: push
+          name: reports
+          path: reports
 
   # -- RELEASE ----------------------------------------------------------------
   release:
@@ -109,12 +114,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3.0.0
 
-      - name: Docker Build
-        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # tag=v2.10.0
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ github.repository }}
+          tags: |
+            type=schedule
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{major}},enable=${{ !startsWith(github.ref, 'refs/tags/v0.') }}
+            type=sha
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: timoa/app-stores-prometheus-exporter
-          tags: |
-            ${GITHUB_REF#refs/*/}
-            latest
+      -
+        name: Build and push
+        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b # tag=v2.9.0
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
