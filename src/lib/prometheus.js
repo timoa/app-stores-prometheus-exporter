@@ -106,6 +106,19 @@ function setMetrics(store, country, data) {
   });
 }
 
+function getScraperConfig(store, opt) {
+  const conf = {
+    appId: opt.appId,
+    country: opt.country, // TODO: Support more countries
+  };
+
+  if (store === 'itunes') {
+    conf.ratings = true;
+  }
+
+  return conf;
+}
+
 /**
  * Get the data from a specific store and app
  *
@@ -116,10 +129,7 @@ function setMetrics(store, country, data) {
 function getAppData(store, opt) {
   return new Promise((resolve, reject) => {
     if (store === 'itunes') {
-      itunes.app({
-        appId: opt.appId,
-        country: opt.country, // TODO: Support more countries
-      })
+      itunes.app(getScraperConfig(store, opt))
         .then((data) => {
           setMetrics(store, opt.country, data) // TODO: Support more countries
             .then(resolve)
@@ -131,10 +141,7 @@ function getAppData(store, opt) {
     }
 
     if (store === 'gplay') {
-      gplay.app({
-        appId: opt.appId,
-        country: opt.country, // TODO: Support more countries
-      })
+      gplay.app(getScraperConfig(store, opt))
         .then((data) => {
           setMetrics(store, opt.country, data) // TODO: Support more countries
             .then(resolve)
