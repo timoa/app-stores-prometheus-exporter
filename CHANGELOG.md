@@ -1,3 +1,11 @@
+# [0.6.0](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.5.0...v0.6.0) (2022-04-11)
+
+
+### Features
+
+* add 'itunes' ratings histogram ([2085342](https://github.com/timoa/app-stores-prometheus-exporter/commit/20853427cde07abc1ec26c77147ac0c46ed8b4af))
+* **gplay:** add min and max active installs to Google Play ([00cbe58](https://github.com/timoa/app-stores-prometheus-exporter/commit/00cbe58b54bb15147765e76098560608eb237516))
+
 # [0.5.0](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.12...v0.5.0) (2022-04-11)
 
 
