@@ -100,7 +100,7 @@ function setMetrics(store, country, data) {
       });
       resolve();
     } catch (err) {
-      reject(new Error(`Prometheus Client error when setting a metric for the app "${data.appId}" (${data.country}): ${err.message}`));
+      reject(new Error(`Prometheus Client error when setting a metric for the app "${data.appId}" (${store}/${country}): ${err.message}`));
     }
   });
 }
