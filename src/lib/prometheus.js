@@ -1,4 +1,3 @@
-
 const client = require('prom-client');
 
 // Stores
@@ -159,13 +158,16 @@ function getAppData(store, opt) {
  *
  * @param {String} store
  */
-async function getAppsData(store) {
-  const promises = apps[store].map(opt => getAppData(store, opt));
+function getAppsData(store) {
+  return new Promise((resolve, reject) => {
+    const promises = apps[store].map((opt) => getAppData(store, opt));
 
-  await Promise.all(promises)
-    .catch((err) => {
-      throw new Error(err.message);
-    });
+    Promise.all(promises)
+      .then(resolve)
+      .catch((err) => {
+        reject(new Error(err.message));
+      });
+  });
 }
 
 /**
@@ -174,14 +176,20 @@ async function getAppsData(store) {
  * @returns
  */
 function getStoresData() {
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (config.stores.includes('itunes')) {
-      await getAppsData('itunes')
-        .catch(reject);
+      Promise.resolve(getAppsData('itunes'))
+        .then(resolve)
+        .catch((err) => {
+          reject(new Error(err.message));
+        });
     }
     if (config.stores.includes('gplay')) {
-      await getAppsData('gplay')
-        .catch(reject);
+      Promise.resolve(getAppsData('gplay'))
+        .then(resolve)
+        .catch((err) => {
+          reject(new Error(err.message));
+        });
     }
     resolve();
   });
