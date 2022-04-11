@@ -70,25 +70,5 @@
     "nyc": "15.1.0",
     "request": "2.88.2"
   },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 0,
-    "statements": 0,
-    "functions": 0,
-    "branches": 0,
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "include": [
-      "src/*.js",
-      "src/**/*.js"
-    ],
-    "exclude": [
-      "test/*.spec.js",
-      "coverage/**"
-    ],
-    "all": true
-  },
   "snyk": true
 }
