@@ -416,6 +416,15 @@ The following Grafana dashboards are available in the Grafana Dashboards reposit
 * Add support to Amazon Appstore
 * Add other metrics from official App Store and Google Play API (downloads, active installations, etc.)
 
+## Contributors
+
+<!-- markdownlint-disable MD033 -->
+<a href="https://github.com/timoa/app-stores-prometheus-exporter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=timoa/app-stores-prometheus-exporter" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 [sonarcloud]: https://sonarcloud.io/about
 [github-badge]: https://github.com/timoa/app-stores-prometheus-exporter/workflows/Build/badge.svg
 [github-url]: https://github.com/timoa/app-stores-prometheus-exporter/actions?query=workflow%3ABuild
