@@ -25,7 +25,7 @@ describe('Prometheus library', () => {
     });
   });
 
-  describe('getContentType', () => {
+  describe('getContentType()', () => {
     it('expect the "prometheus.getContentType" to exists and be a string', (done) => {
       expect(typeof (prometheus.getContentType)).to.be.equals('string');
       done();

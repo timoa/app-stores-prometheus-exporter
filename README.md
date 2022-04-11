@@ -243,7 +243,7 @@ appstores_ratings_5_total{store="gplay",country="us",app="com.instagram.android"
 
 ## Requirements
 
-* NodeJS >=10
+* NodeJS >=16
 
 ## Installation
 
@@ -251,7 +251,14 @@ appstores_ratings_5_total{store="gplay",country="us",app="com.instagram.android"
 
 #### Default with demo apps
 
-The simplest way to test this Prometheus exporter is by using Docker. The command below will exports the metrics from the default apps from the `src/examples/apps.json`.
+The simplest way to test this Prometheus exporter is by using Docker.
+
+The command below will exports the metrics from the default apps from the `src/examples/apps.json`.
+
+``` bash
+mkdir ./config
+cp -R ./src/examples/*.json ./config
+```
 
 ``` bash
 docker-compose up
@@ -265,14 +272,18 @@ curl http://localhost:9514/metrics
 
 #### Customize with yours apps
 
-Simply copy the config files from the `src/examples` folder to the `config` folder (root of the project):
+Now, try to test with your own app(s) by editing the config files.
+
+Start by copy the files from the `src/examples` folder to the `config` folder (root of the project):
 
 | From || To |
 |---|---|---|
 |`src/examples/apps.json`|=>|`config/apps.json`|
 |`src/examples/config.json`|=>|`config/config.json`|
 
-Now, restart the Docker container to see the changes:
+Add now your app IDs for iOS or/and Android on the `apps.json` file and activate the metrics you wants to export in the `config.json` file.
+
+When it's done, restart the Docker container to see the changes:
 
 ``` bash
 docker-compose down
@@ -284,8 +295,6 @@ curl http://localhost:9514/metrics
 ```
 
 ### NPM install
-
-WIP
 
 ### From sources
 
@@ -303,8 +312,7 @@ Copy the configuration files
 |`src/examples/config.json`|=>|`config/config.json`|
 
 ``` bash
-mv src/examples/apps.json config/apps.json
-mv src/examples/config.json config/config.json
+mv ./src/examples/*.json ./config
 ```
 
 Start the App Stores Prometheus Exporter:
@@ -370,6 +378,12 @@ npm run test:coverage
 npm run test:functional
 ```
 
+#### All the tests
+
+``` bash
+npm run test:all
+```
+
 *Will be replace by `chai-http` soon.*
 
 ## Dashboards
@@ -383,7 +397,7 @@ The following Grafana dashboards are available in the Grafana Dashboards reposit
 
 ## TODO
 
-* Better test coverage
+* Improve test coverage
 * Refactoring of the code to add more stores as plugins
 * Simplify multiple countries configuration
 * Add support to Mac App Store

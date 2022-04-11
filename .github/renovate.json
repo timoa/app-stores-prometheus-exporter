@@ -7,7 +7,7 @@
   "platformAutomerge": true,
   "branchPrefix": "fix/deps/",
   "addLabels": [
-    "dependencies",
+    "deps",
     "security"
   ],
   "packageRules": [
