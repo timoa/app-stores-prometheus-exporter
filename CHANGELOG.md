@@ -1,3 +1,23 @@
+# [0.5.0](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.12...v0.5.0) (2022-04-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.878.0 ([dd5a64f](https://github.com/timoa/app-stores-prometheus-exporter/commit/dd5a64fd67628b5fa29bdc1521e495c6e166745b))
+* **deps:** update dependency snyk to v1.879.0 ([d3fdb56](https://github.com/timoa/app-stores-prometheus-exporter/commit/d3fdb5677f531ebc8add78152c65840d17780f64))
+* **deps:** update dependency snyk to v1.880.0 ([5e0d890](https://github.com/timoa/app-stores-prometheus-exporter/commit/5e0d8905f1b987ec347f53d39a539d3ee15686db))
+* **deps:** update dependency snyk to v1.881.0 ([0e5ca7d](https://github.com/timoa/app-stores-prometheus-exporter/commit/0e5ca7df29c723514fe37dac8ac6d7f6fb787928))
+* **deps:** update dependency snyk to v1.882.0 ([e7b6964](https://github.com/timoa/app-stores-prometheus-exporter/commit/e7b6964f0f0c61c34ca7b06d9ff6efaaede0c259))
+* **deps:** update dependency snyk to v1.883.0 ([1a054fe](https://github.com/timoa/app-stores-prometheus-exporter/commit/1a054fe836a0fd6c06b291982278be908be54ae2))
+* **deps:** update prom-client from 11.5.3 to 14.0.1 ([67ec212](https://github.com/timoa/app-stores-prometheus-exporter/commit/67ec2125c89739fb9edf7f338958de062f1d8c2b))
+* **deps:** update UUID from 3.4.0 to 8.3.2 ([a4aab7a](https://github.com/timoa/app-stores-prometheus-exporter/commit/a4aab7a8ff00d40748ff65d35e4bd4fbb444462f))
+* **docker:** update Node source to 16.x and reduce image size ([f8d2d36](https://github.com/timoa/app-stores-prometheus-exporter/commit/f8d2d36fdf52f2312dc1efb22e693c5dc88d4be4))
+
+
+### Features
+
+* **project:** add node 16.x and NPM lock version 2 (8.6.0) ([7a3427b](https://github.com/timoa/app-stores-prometheus-exporter/commit/7a3427b9bab7b2a331de8447d5bb1b9e1f33e245))
+
 ## [0.4.12](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.4.11...v0.4.12) (2022-04-02)
 
 
