@@ -40,7 +40,7 @@
   "dependencies": {
     "app-store-scraper": "0.17.0",
     "google-play-scraper": "8.1.0",
-    "prom-client": "11.5.3",
+    "prom-client": "14.0.1",
     "snyk": "1.883.0",
     "uuid": "3.4.0",
     "winston": "3.6.0"
