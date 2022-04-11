@@ -6,10 +6,9 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - ./config:/opt/app/config
+      - type: bind
+        source: ./config # You need to copy the config files example to the config folder at the root the project
+        target: /opt/app/config
     ports:
       - 9514:9514
     restart: always
-
-volumes:
-  config:
