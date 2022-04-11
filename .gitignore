@@ -66,3 +66,6 @@ typings/
 # SonarQube
 .sonarlint
 .scannerwork
+
+# Config files
+config/*.json
