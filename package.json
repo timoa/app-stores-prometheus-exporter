@@ -11,7 +11,7 @@
     "test:functional": "./node_modules/.bin/mocha --reporter spec ./test/functional",
     "test:all": "./node_modules/.bin/run-s test:coverage",
     "docker:status": "node src/healthcheck",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepare": "npm run snyk-protect"
   },
   "bin": {
@@ -41,12 +41,13 @@
     "app-store-scraper": "0.17.0",
     "google-play-scraper": "8.1.0",
     "prom-client": "11.5.3",
-    "snyk": "1.883.0",
+    "@snyk/protect": "1.900.0",
     "uuid": "3.4.0",
     "winston": "3.6.0"
   },
   "engines": {
-    "node": ">=16.0"
+    "node": ">=16.0",
+    "npm": ">=8.6.0"
   },
   "os": [
     "linux",
