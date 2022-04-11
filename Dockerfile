@@ -1,5 +1,4 @@
-ARG nodeVersion=12.16.1
-FROM node:${nodeVersion}-alpine
+FROM node:16.14.2-alpine3.15
 ARG appPort=9514
 
 LABEL maintainer="Damien Laureaux <d.laureaux@timoa.com>" \
@@ -21,7 +20,8 @@ RUN \
       adduser -S app-user
 
 WORKDIR /opt/app/
-COPY ./ /opt/app/
+COPY ./package.json ./
+COPY ./src ./src
 
 HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
       CMD npm run docker:status
