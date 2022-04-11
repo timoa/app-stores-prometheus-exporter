@@ -27,16 +27,18 @@ Currently, the Prometheus Exporter exports these datas:
 
 | Metric | iTunes | Google Play |
 |--------|--------|-------------|
-| **Score** since first version | ✅ | ✅ |
-| Total Number of **Reviews** | ✅ | ✅ |
-| Total Number of **Ratings** | ✅ | ✅ |
-| Total Number of **Ratings with 1 star** | ✅ | ✅ |
-| Total Number of **Ratings with 2 stars** | ✅ | ✅ |
-| Total Number of **Ratings with 3 stars** | ✅ | ✅ |
-| Total Number of **Ratings with 4 stars** | ✅ | ✅ |
-| Total Number of **Ratings with 5 stars** | ✅ | ✅ |
-| **Current Version Score** | ✅ | ❌ |
-| **Current Version number of Reviews** | ✅ | ❌ |
+| Score since first version | ✅ | ✅ |
+| Current Version Score | ✅ | ❌ |
+| Current Version number of Reviews | ✅ | ❌ |
+| Total Number of Reviews | ✅ | ✅ |
+| Total Number of Ratings | ✅ | ✅ |
+| Total Number of Ratings with 1 star | ✅ | ✅ |
+| Total Number of Ratings with 2 stars | ✅ | ✅ |
+| Total Number of Ratings with 3 stars | ✅ | ✅ |
+| Total Number of Ratings with 4 stars | ✅ | ✅ |
+| Total Number of Ratings with 5 stars | ✅ | ✅ |
+| Minimum Active Installs | ❌ | ✅ |
+| Maximum Active Installs | ❌ | ✅ |
 
 ## Metrics exposed to Prometheus
 
@@ -144,6 +146,8 @@ appstores_ratings_2_total{store="gplay",country="COUNTRY",app="APPID",version="V
 appstores_ratings_3_total{store="gplay",country="COUNTRY",app="APPID",version="VERSION"}
 appstores_ratings_4_total{store="gplay",country="COUNTRY",app="APPID",version="VERSION"}
 appstores_ratings_5_total{store="gplay",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_min_active_installs{store="gplay",country="COUNTRY",app="APPID",version="VERSION"}
+appstores_max_active_installs{store="gplay",country="COUNTRY",app="APPID",version="VERSION"}
 ```
 
 ## Metrics output example
@@ -234,6 +238,18 @@ appstores_current_version_score_total{store="itunes",country="gb",app="net.whats
 appstores_current_version_reviews_total{store="itunes",country="us",app="net.whatsapp.WhatsApp",version="22.7.80"} 9898794
 appstores_current_version_reviews_total{store="itunes",country="us",app="com.burbn.instagram",version="228.0"} 22806478
 appstores_current_version_reviews_total{store="itunes",country="gb",app="net.whatsapp.WhatsApp",version="22.7.80"} 2505037
+
+# HELP appstores_min_active_installs App minimum active installs since the launch of the app
+# TYPE appstores_min_active_installs gauge
+appstores_min_active_installs{store="gplay",country="us",app="com.instagram.android",version="Varies with device"} 1000000000
+appstores_min_active_installs{store="gplay",country="gb",app="com.whatsapp",version="2.22.7.74"} 5000000000
+appstores_min_active_installs{store="gplay",country="us",app="com.whatsapp",version="2.22.7.74"} 5000000000
+
+# HELP appstores_max_active_installs App maximum active installs since the launch of the app
+# TYPE appstores_max_active_installs gauge
+appstores_max_active_installs{store="gplay",country="us",app="com.instagram.android",version="Varies with device"} 4116093271
+appstores_max_active_installs{store="gplay",country="gb",app="com.whatsapp",version="2.22.7.74"} 7025049556
+appstores_max_active_installs{store="gplay",country="us",app="com.whatsapp",version="2.22.7.74"} 7025049556
 ```
 
 ## Requirements

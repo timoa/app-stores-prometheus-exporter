@@ -48,5 +48,15 @@
     "name": "appstores_current_version_reviews_total",
     "help": "App reviews for the current app version",
     "compatibility": ["itunes"]
+  },
+  "minInstalls": {
+    "name": "appstores_min_active_installs",
+    "help": "App minimum active installs since the launch of the app",
+    "compatibility": ["gplay"]
+  },
+  "maxInstalls": {
+    "name": "appstores_max_active_installs",
+    "help": "App maximum active installs since the launch of the app",
+    "compatibility": ["gplay"]
   }
 }
