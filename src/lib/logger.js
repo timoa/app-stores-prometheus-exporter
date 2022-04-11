@@ -18,7 +18,7 @@ const logger = createLogger({
       format: format.combine(
         format.colorize(),
         format.printf(
-          info => `${correlationId} | ${info.timestamp} | ${info.level}: ${info.message}`,
+          (info) => `${correlationId} | ${info.timestamp} | ${info.level}: ${info.message}`,
         ),
       ),
     }),
