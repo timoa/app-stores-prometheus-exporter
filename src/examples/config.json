@@ -13,6 +13,8 @@
     "ratings4": true,
     "ratings5": true,
     "currentVersionScore": true,
-    "currentVersionReviews": true
+    "currentVersionReviews": true,
+    "minInstalls": true,
+    "maxInstalls": true
   }
 }
