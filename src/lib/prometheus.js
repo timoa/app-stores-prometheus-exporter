@@ -175,6 +175,22 @@ function getAppsData(store) {
 }
 
 /**
+ * Get the data from a specific store
+ *
+ * @param {String} store
+ * @returns
+ */
+function getStoresDataPerStore(store) {
+  return new Promise((resolve, reject) => {
+    Promise.resolve(getAppsData(store))
+      .then(resolve)
+      .catch((err) => {
+        reject(new Error(err.message));
+      });
+  });
+}
+
+/**
  * Get the data from all the apps and stores
  *
  * @returns
@@ -182,15 +198,13 @@ function getAppsData(store) {
 function getStoresData() {
   return new Promise((resolve, reject) => {
     if (config.stores.includes('itunes')) {
-      Promise.resolve(getAppsData('itunes'))
-        .then(resolve)
+      getStoresDataPerStore('itunes')
         .catch((err) => {
           reject(new Error(err.message));
         });
     }
     if (config.stores.includes('gplay')) {
-      Promise.resolve(getAppsData('gplay'))
-        .then(resolve)
+      getStoresDataPerStore('gplay')
         .catch((err) => {
           reject(new Error(err.message));
         });
