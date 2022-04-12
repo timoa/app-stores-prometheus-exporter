@@ -50,13 +50,13 @@
     "compatibility": ["itunes"]
   },
   "minInstalls": {
-    "name": "appstores_min_active_installs",
-    "help": "App minimum active installs since the launch of the app",
+    "name": "appstores_min_installs",
+    "help": "App minimum installs since the launch of the app",
     "compatibility": ["gplay"]
   },
   "maxInstalls": {
-    "name": "appstores_max_active_installs",
-    "help": "App maximum active installs since the launch of the app",
+    "name": "appstores_max_installs",
+    "help": "App maximum installs since the launch of the app",
     "compatibility": ["gplay"]
   }
 }

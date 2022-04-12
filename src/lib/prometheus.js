@@ -1,4 +1,3 @@
-
 const client = require('prom-client');
 
 // Stores
@@ -101,15 +100,24 @@ function setMetrics(store, country, data) {
       });
       resolve();
     } catch (err) {
-      reject(new Error(`Prometheus Client error when setting a metric for the app "${data.appId}" (${data.country}): ${err.message}`));
+      reject(new Error(`Prometheus Client error when setting a metric for the app "${data.appId}" (${store}/${country}): ${err.message}`));
     }
   });
 }
 
-function getScraperConfig(store, opt) {
+/**
+ * Create the App Store or Google Play scrapper config
+ *
+ * @param {String} store
+ * @param {Object} opt
+ * @param {String} opt.appId
+ * @param {String} opt.country
+ * @returns
+ */
+function getScrapperConfig(store, opt) {
   const conf = {
     appId: opt.appId,
-    country: opt.country, // TODO: Support more countries
+    country: opt.country,
   };
 
   if (store === 'itunes') {
@@ -128,29 +136,24 @@ function getScraperConfig(store, opt) {
  */
 function getAppData(store, opt) {
   return new Promise((resolve, reject) => {
-    if (store === 'itunes') {
-      itunes.app(getScraperConfig(store, opt))
-        .then((data) => {
-          setMetrics(store, opt.country, data) // TODO: Support more countries
-            .then(resolve)
-            .catch(reject);
-        })
-        .catch((err) => {
-          reject(new Error(`Itunes Scraper error for the app "${opt.appId}" (${opt.country}): ${err.message}`));
-        });
+    // Default is itunes
+    let scrapper = itunes;
+
+    // If store is gplay, use gplay
+    if (store === 'gplay') {
+      scrapper = gplay;
     }
 
-    if (store === 'gplay') {
-      gplay.app(getScraperConfig(store, opt))
-        .then((data) => {
-          setMetrics(store, opt.country, data) // TODO: Support more countries
-            .then(resolve)
-            .catch(reject);
-        })
-        .catch((err) => {
-          reject(new Error(`Google Play Scraper error for the app "${opt.appId}"" (${opt.country}): ${err.message}`));
-        });
-    }
+    // Get the scraper data
+    scrapper.app(getScrapperConfig(store, opt))
+      .then((data) => {
+        setMetrics(store, opt.country, data)
+          .then(resolve)
+          .catch(reject);
+      })
+      .catch((err) => {
+        reject(new Error(`${store} Scraper error for the app "${opt.appId}" (${opt.country}): ${err.message}`));
+      });
   });
 }
 
@@ -159,13 +162,32 @@ function getAppData(store, opt) {
  *
  * @param {String} store
  */
-async function getAppsData(store) {
-  const promises = apps[store].map(opt => getAppData(store, opt));
+function getAppsData(store) {
+  return new Promise((resolve, reject) => {
+    const promises = apps[store].map((opt) => getAppData(store, opt));
 
-  await Promise.all(promises)
-    .catch((err) => {
-      throw new Error(err.message);
-    });
+    Promise.all(promises)
+      .then(resolve)
+      .catch((err) => {
+        reject(new Error(err.message));
+      });
+  });
+}
+
+/**
+ * Get the data from a specific store
+ *
+ * @param {String} store
+ * @returns
+ */
+function getStoresDataPerStore(store) {
+  return new Promise((resolve, reject) => {
+    Promise.resolve(getAppsData(store))
+      .then(resolve)
+      .catch((err) => {
+        reject(new Error(err.message));
+      });
+  });
 }
 
 /**
@@ -174,15 +196,13 @@ async function getAppsData(store) {
  * @returns
  */
 function getStoresData() {
-  return new Promise(async (resolve, reject) => {
-    if (config.stores.includes('itunes')) {
-      await getAppsData('itunes')
-        .catch(reject);
-    }
-    if (config.stores.includes('gplay')) {
-      await getAppsData('gplay')
-        .catch(reject);
-    }
+  return new Promise((resolve, reject) => {
+    config.stores.forEach((store) => {
+      getStoresDataPerStore(store)
+        .catch((err) => {
+          reject(new Error(err.message));
+        });
+    });
     resolve();
   });
 }
@@ -215,9 +235,7 @@ module.exports = {
   // Get the Prometheus metrics
   getMetrics: () => new Promise((resolve, reject) => {
     getStoresData()
-      .then(() => {
-        resolve(register.metrics());
-      })
+      .then(resolve(register.metrics()))
       .catch(reject);
   }),
 

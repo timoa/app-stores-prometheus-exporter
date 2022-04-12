@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node src/exporter",
-    "pretest": "eslint ./src",
+    "pretest": "./node_modules/.bin/eslint ./src",
     "test": "./node_modules/.bin/mocha --reporter spec",
     "test:coverage": "./node_modules/.bin/nyc npm test",
     "test:functional": "./node_modules/.bin/mocha --reporter spec ./test/functional",
@@ -38,10 +38,10 @@
   },
   "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
   "dependencies": {
+    "@snyk/protect": "1.900.0",
     "app-store-scraper": "0.17.0",
     "google-play-scraper": "8.1.0",
     "prom-client": "14.0.1",
-    "@snyk/protect": "1.900.0",
     "uuid": "8.3.2",
     "winston": "3.7.2"
   },
@@ -55,12 +55,13 @@
     "darwin"
   ],
   "devDependencies": {
-    "acorn": "6.4.2",
+    "acorn": "8.7.0",
     "acorn-jsx": "5.3.2",
     "chai": "4.3.6",
+    "chai-as-promised": "7.1.1",
     "chai-http": "4.3.0",
-    "eslint": "5.16.0",
-    "eslint-config-airbnb": "17.1.1",
+    "eslint": "8.12.0",
+    "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.29.4",
