@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.6.1...v0.7.0) (2022-04-12)
+
+
+### Features
+
+* **docker:** add support to arm64 platform ([b6034d1](https://github.com/timoa/app-stores-prometheus-exporter/commit/b6034d12be6cf9b32ef280ae6c6496f70453dff3))
+
 ## [0.6.1](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.6.0...v0.6.1) (2022-04-12)
 
 
