@@ -227,9 +227,7 @@ module.exports = {
   // Get the Prometheus metrics
   getMetrics: () => new Promise((resolve, reject) => {
     getStoresData()
-      .then(() => {
-        resolve(register.metrics());
-      })
+      .then(resolve(register.metrics()))
       .catch(reject);
   }),
 
