@@ -1,3 +1,11 @@
+## [0.6.1](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.6.0...v0.6.1) (2022-04-12)
+
+
+### Bug Fixes
+
+* **lint:** fix lint issues with the latest ESLint and Airbnb rules ([df7c3cf](https://github.com/timoa/app-stores-prometheus-exporter/commit/df7c3cf4a38e674ec6069d20b1bb3169e4c3dccf))
+* **prometheus:** fix error message with undefined values ([a13aa04](https://github.com/timoa/app-stores-prometheus-exporter/commit/a13aa042b5f98d1a52ab011470fffd7b8a158176))
+
 # [0.6.0](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.5.0...v0.6.0) (2022-04-11)
 
 
