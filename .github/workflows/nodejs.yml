@@ -150,7 +150,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Update repo description
-        uses: peter-evans/dockerhub-description@v2
+        uses: peter-evans/dockerhub-description@616d1b63e806b630b975af3b4fe3304307b20f40 # tag=v2.4.3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
