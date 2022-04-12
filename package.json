@@ -38,10 +38,10 @@
   },
   "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
   "dependencies": {
+    "@snyk/protect": "1.900.0",
     "app-store-scraper": "0.17.0",
     "google-play-scraper": "8.1.0",
     "prom-client": "14.0.1",
-    "@snyk/protect": "1.900.0",
     "uuid": "8.3.2",
     "winston": "3.7.2"
   },
@@ -58,6 +58,7 @@
     "acorn": "8.7.0",
     "acorn-jsx": "5.3.2",
     "chai": "4.3.6",
+    "chai-as-promised": "7.1.1",
     "chai-http": "4.3.0",
     "eslint": "8.12.0",
     "eslint-config-airbnb": "19.0.4",
