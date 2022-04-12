@@ -197,18 +197,12 @@ function getStoresDataPerStore(store) {
  */
 function getStoresData() {
   return new Promise((resolve, reject) => {
-    if (config.stores.includes('itunes')) {
-      getStoresDataPerStore('itunes')
+    config.stores.forEach((store) => {
+      getStoresDataPerStore(store)
         .catch((err) => {
           reject(new Error(err.message));
         });
-    }
-    if (config.stores.includes('gplay')) {
-      getStoresDataPerStore('gplay')
-        .catch((err) => {
-          reject(new Error(err.message));
-        });
-    }
+    });
     resolve();
   });
 }
