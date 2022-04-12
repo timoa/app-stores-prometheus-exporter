@@ -17,9 +17,9 @@ describe('Prometheus library', () => {
 
   describe('getMetrics()', () => {
     it('expect the "prometheus.getMetrics()" to exists and be a function', () => expect(typeof prometheus.getMetrics).to.be.equals('function'));
-    it('expect the "prometheus.getMetric()" function to not throw', () => expect(prometheus.getMetrics).to.not.throw());
-    it('expect the "prometheus.getMetric()" function to resolves as promised', () => expect(Promise.resolve(prometheus.getMetrics)).to.be.fulfilled);
-    it('expect the "prometheus.getMetric()" function to rejects as promised', () => expect(Promise.reject(prometheus.getMetrics)).to.be.rejected);
+    it('expect the "prometheus.getMetrics()" function to not throw', () => expect(prometheus.getMetrics).to.not.throw());
+    it('expect the "prometheus.getMetrics()" function to resolves as promised', () => expect(Promise.resolve(prometheus.getMetrics)).to.be.fulfilled);
+    it('expect the "prometheus.getMetrics()" function to rejects as promised', () => expect(Promise.reject(prometheus.getMetrics)).to.be.rejected);
   });
 
   describe('getContentType()', () => {
