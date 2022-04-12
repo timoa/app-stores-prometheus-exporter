@@ -105,10 +105,19 @@ function setMetrics(store, country, data) {
   });
 }
 
-function getScraperConfig(store, opt) {
+/**
+ * Create the App Store or Google Play scrapper config
+ *
+ * @param {String} store
+ * @param {Object} opt
+ * @param {String} opt.appId
+ * @param {String} opt.country
+ * @returns
+ */
+function getScrapperConfig(store, opt) {
   const conf = {
     appId: opt.appId,
-    country: opt.country, // TODO: Support more countries
+    country: opt.country,
   };
 
   if (store === 'itunes') {
@@ -127,29 +136,24 @@ function getScraperConfig(store, opt) {
  */
 function getAppData(store, opt) {
   return new Promise((resolve, reject) => {
-    if (store === 'itunes') {
-      itunes.app(getScraperConfig(store, opt))
-        .then((data) => {
-          setMetrics(store, opt.country, data) // TODO: Support more countries
-            .then(resolve)
-            .catch(reject);
-        })
-        .catch((err) => {
-          reject(new Error(`Itunes Scraper error for the app "${opt.appId}" (${opt.country}): ${err.message}`));
-        });
+    // Default is itunes
+    let scrapper = itunes;
+
+    // If store is gplay, use gplay
+    if (store === 'gplay') {
+      scrapper = gplay;
     }
 
-    if (store === 'gplay') {
-      gplay.app(getScraperConfig(store, opt))
-        .then((data) => {
-          setMetrics(store, opt.country, data) // TODO: Support more countries
-            .then(resolve)
-            .catch(reject);
-        })
-        .catch((err) => {
-          reject(new Error(`Google Play Scraper error for the app "${opt.appId}"" (${opt.country}): ${err.message}`));
-        });
-    }
+    // Get the scraper data
+    scrapper.app(getScrapperConfig(store, opt))
+      .then((data) => {
+        setMetrics(store, opt.country, data)
+          .then(resolve)
+          .catch(reject);
+      })
+      .catch((err) => {
+        reject(new Error(`${store} Scraper error for the app "${opt.appId}" (${opt.country}): ${err.message}`));
+      });
   });
 }
 
