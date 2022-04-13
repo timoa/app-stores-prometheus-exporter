@@ -148,10 +148,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@836d7e6aa8f6f32dce26f5a1dd46d3dc24997eae # tag=v3.0.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ github.repository }}
