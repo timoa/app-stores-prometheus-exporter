@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   api:
-    image: timoa/app-stores-prometheus-exporter:latest@sha256:e547e2122b6f0a3316adba40c4b38763a3984e63e0c07cb0ce03265d316c8182
+    image: timoa/app-stores-prometheus-exporter:latest
     environment:
       - NODE_ENV=production
     volumes:
