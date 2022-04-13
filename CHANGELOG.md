@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.7.0...v0.7.1) (2022-04-13)
+
+
+### Bug Fixes
+
+* **docker:** updating Docker description with API doesn't work with MFA ([c5e538f](https://github.com/timoa/app-stores-prometheus-exporter/commit/c5e538f1f2494f50230386634822fe2a34c26836))
+
 # [0.7.0](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.6.1...v0.7.0) (2022-04-12)
 
 
