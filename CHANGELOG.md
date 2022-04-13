@@ -1,3 +1,10 @@
+## [0.7.2](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.7.1...v0.7.2) (2022-04-13)
+
+
+### Bug Fixes
+
+* **docker:** remove pinned image that refer to previous Docker image ([b9081b5](https://github.com/timoa/app-stores-prometheus-exporter/commit/b9081b527cc606e966c6696362adf623683c5555))
+
 ## [0.7.1](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.7.0...v0.7.1) (2022-04-13)
 
 
