@@ -1,7 +1,9 @@
 # Mobile app stores Prometheus Exporter (iTunes & Google Play)
 
+[![Latest Release][release-badge]][release-url]
 [![Build Status][github-badge]][github-url]
 [![Docker Pulls][docker-badge]][docker-url]
+
 [![Quality Gate Status][sonarcloud-status-badge]][sonarcloud-url]
 [![Security Rating][sonarcloud-security-badge]][sonarcloud-url]
 [![Maintainability Rating][sonarcloud-maintainability-badge]][sonarcloud-url]
@@ -426,6 +428,8 @@ The following Grafana dashboards are available in the Grafana Dashboards reposit
 Made with [contrib.rocks](https://contrib.rocks).
 
 [sonarcloud]: https://sonarcloud.io/about
+[release-badge]: https://img.shields.io/github/v/release/timoa/app-stores-prometheus-exporter?logoColor=orange
+[release-url]: https://github.com/timoa/app-stores-prometheus-exporter/releases
 [github-badge]: https://github.com/timoa/app-stores-prometheus-exporter/workflows/Build/badge.svg
 [github-url]: https://github.com/timoa/app-stores-prometheus-exporter/actions?query=workflow%3ABuild
 [docker-badge]: https://img.shields.io/docker/pulls/timoa/app-stores-prometheus-exporter.svg
