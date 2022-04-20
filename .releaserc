@@ -1,4 +1,5 @@
 {
+  "repositoryUrl": "https://github.com/timoa/app-stores-prometheus-exporter.git",
   "branches": [
     "master",
     "develop"
