@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3.0.1
 
       - name: Run hadolint
-        uses: reviewdog/action-hadolint@0e7a869dbe1c30ca2b3facbc9067148187e9ab5a # tag=v1.32.0
+        uses: reviewdog/action-hadolint@9ab0e438e4266f368e1a782cee6b85a404b2d6a0 # tag=v1.32.1
