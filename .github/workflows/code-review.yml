@@ -4,13 +4,24 @@ on: [pull_request]
 
 jobs:
 
-  # -- DOCKER -----------------------------------------------------------------
-  hadolint:
-    name: runner / hadolint
+  # -- ESLINT -----------------------------------------------------------------
+  eslint:
+    name: ESLint
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3.0.1
 
+      - name: Run ESLint
+        uses: reviewdog/action-eslint@v1
+
+  # -- DOCKER -----------------------------------------------------------------
+  hadolint:
+    name: Hadolint
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3.0.1
 
