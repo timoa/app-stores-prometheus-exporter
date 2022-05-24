@@ -56,7 +56,6 @@ function createGauge(opt) {
 /**
  * Map date that come from the store scrapers
  * and map them to the Prometheus metrics
- * TODO: Create a mapper based on a config file maybe
  *
  * @param {String} name
  * @param {Object} data
