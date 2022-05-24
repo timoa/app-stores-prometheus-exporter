@@ -56,7 +56,7 @@ server.on('request', (req, res) => {
         logger.error(err);
         res.end(err);
       });
-  } else if (req.method === 'HEAD') {
+  } else if (['GET', 'HEAD'].includes(req.method) && req.url === '/health') {
     // Healthcheck
     res.writeHead(204, { 'Content-Type': 'text/html' });
     res.end('ok');
