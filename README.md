@@ -283,6 +283,12 @@ Now, you can see the Prometheus metrics from your browser or command line at [ht
 curl http://localhost:9514/metrics
 ```
 
+There is also a health check available which you can access from your browser or command line at [http://localhost:9514/health][app-stores-prometheus-exporter-local]
+
+``` bash
+curl -v http://localhost:9514/health
+```
+
 #### Customize with yours apps
 
 Now, try to test with your own app(s) by editing the config files.

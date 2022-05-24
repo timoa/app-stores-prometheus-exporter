@@ -38,7 +38,17 @@ describe('Exporter', function () {
 
   it('it should returns a 204 status code', (done) => {
     chai.request(exporter)
-      .head('/')
+      .head('/health')
+      .end((err, res) => {
+        expect(res.status).to.have.be.equals(204);
+        expect(res.header['content-type']).to.equal('text/html');
+        done();
+      });
+  });
+
+  it('it should returns a 204 status code', (done) => {
+    chai.request(exporter)
+      .get('/health')
       .end((err, res) => {
         expect(res.status).to.have.be.equals(204);
         expect(res.header['content-type']).to.equal('text/html');
