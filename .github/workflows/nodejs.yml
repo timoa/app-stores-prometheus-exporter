@@ -23,8 +23,10 @@ jobs:
             github.com:443
             itunes.apple.com:443
             pipelines.actions.githubusercontent.com:443
+            objects.githubusercontent.com:443
             play.google.com:443
             registry.npmjs.org:443
+            nodejs.org:443
             snyk.io:443
 
       - name: Checkout
