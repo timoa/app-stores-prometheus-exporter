@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@248ae51c2e8cc9622ecf50685c8bf7150c6e8813
+        uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -23,15 +23,17 @@ jobs:
             github.com:443
             itunes.apple.com:443
             pipelines.actions.githubusercontent.com:443
+            objects.githubusercontent.com:443
             play.google.com:443
             registry.npmjs.org:443
+            nodejs.org:443
             snyk.io:443
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
 
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@56337c425554a6be30cdef71bf441f15be286854 # tag=v3.1.1
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048 # tag=v3.2.0
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
@@ -48,7 +50,7 @@ jobs:
         run: npm run test:coverage
 
       - name: Save Code Coverage
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
           name: code-coverage
           path: coverage
@@ -61,7 +63,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@248ae51c2e8cc9622ecf50685c8bf7150c6e8813
+        uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -98,7 +100,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@248ae51c2e8cc9622ecf50685c8bf7150c6e8813
+        uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -121,7 +123,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SCAN_ANNOTATE_PR: true
 
-      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
+      - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
           name: reports
           path: reports
@@ -137,7 +139,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@248ae51c2e8cc9622ecf50685c8bf7150c6e8813
+        uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
           egress-policy: audit
 
@@ -158,7 +160,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@248ae51c2e8cc9622ecf50685c8bf7150c6e8813
+        uses: step-security/harden-runner@dd5681a7d0c66fb362664d618ef4a90d656f6516
         with:
           egress-policy: audit
 

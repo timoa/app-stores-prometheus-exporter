@@ -4,7 +4,7 @@ const http = require('http');
 const options = {
   host: '0.0.0.0',
   port: '9514',
-  path: '/_health',
+  path: '/health',
   method: 'HEAD',
   timeout: 2000,
 };
