@@ -27,7 +27,7 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
       CMD npm run docker:status
 
 RUN \
-      npm install --production --unsafe-perm && \
+      npm install --omit=dev --unsafe-perm && \
       npm cache clean --force
 
 RUN chown -R app-user /opt/app
