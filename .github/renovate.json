@@ -7,7 +7,7 @@
   "platformAutomerge": true,
   "branchPrefix": "fix/deps/",
   "addLabels": [
-    "deps",
+    "dependencies",
     "security"
   ],
   "assignees": [
