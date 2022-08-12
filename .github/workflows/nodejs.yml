@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@613bd0d3f757c824251c115a9ef1b95538fbcc07
+        uses: step-security/harden-runner@f0143d7d92150d881096e39d9f6bf76a85ed3d2e
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -63,7 +63,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@613bd0d3f757c824251c115a9ef1b95538fbcc07
+        uses: step-security/harden-runner@f0143d7d92150d881096e39d9f6bf76a85ed3d2e
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -101,7 +101,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@613bd0d3f757c824251c115a9ef1b95538fbcc07
+        uses: step-security/harden-runner@f0143d7d92150d881096e39d9f6bf76a85ed3d2e
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -140,7 +140,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@613bd0d3f757c824251c115a9ef1b95538fbcc07
+        uses: step-security/harden-runner@f0143d7d92150d881096e39d9f6bf76a85ed3d2e
         with:
           egress-policy: audit
 
@@ -161,7 +161,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@613bd0d3f757c824251c115a9ef1b95538fbcc07
+        uses: step-security/harden-runner@f0143d7d92150d881096e39d9f6bf76a85ed3d2e
         with:
           egress-policy: audit
 
