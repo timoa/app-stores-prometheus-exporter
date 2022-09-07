@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Harden the GitHub Actions Runner
-        uses: step-security/harden-runner@e680f76da57a1e1ce6dc3eed69efc703fcca8dce
+        uses: step-security/harden-runner@0b61316f5a3fc8b7b29daa3d9b4a37cd052d11ed
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -44,7 +44,7 @@ jobs:
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@2ca79b6fa8d3ec278944088b4aa5f46912db5d63 # tag=v2.1.18
+        uses: github/codeql-action/init@7fee4ca032ac341c12486c4c06822c5221c76533 # tag=v2.1.20
         # Override language selection by uncommenting this and choosing your languages
         # with:
         #   languages: go, javascript, csharp, python, cpp, java
@@ -52,7 +52,7 @@ jobs:
       # Autobuild attempts to build any compiled languages (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below).
       - name: Autobuild
-        uses: github/codeql-action/autobuild@2ca79b6fa8d3ec278944088b4aa5f46912db5d63 # tag=v2.1.18
+        uses: github/codeql-action/autobuild@7fee4ca032ac341c12486c4c06822c5221c76533 # tag=v2.1.20
 
       # ℹ️ Command-line programs to run using the OS shell.
       # 📚 https://git.io/JvXDl
@@ -66,4 +66,4 @@ jobs:
       #     make release
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@2ca79b6fa8d3ec278944088b4aa5f46912db5d63 # tag=v2.1.18
+        uses: github/codeql-action/analyze@7fee4ca032ac341c12486c4c06822c5221c76533 # tag=v2.1.20
