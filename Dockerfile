@@ -1,4 +1,4 @@
-FROM node:16.15.1-alpine3.15@sha256:1fafca8cf41faf035192f5df1a5387656898bec6ac2f92f011d051ac2344f5c9
+FROM node:16.17.0-alpine3.15@sha256:a60b681e1c28f60ea63f8394dea5384c69bdc464b9655e880f74aafaa5945665
 ARG appPort=9514
 
 LABEL maintainer="Damien Laureaux <d.laureaux@timoa.com>" \
@@ -27,7 +27,7 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
       CMD npm run docker:status
 
 RUN \
-      npm install --production --unsafe-perm && \
+      npm install --omit=dev --unsafe-perm && \
       npm cache clean --force
 
 RUN chown -R app-user /opt/app
