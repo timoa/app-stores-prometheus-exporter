@@ -64,7 +64,7 @@
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-react": "7.30.1",
+    "eslint-plugin-react": "7.31.0",
     "espree": "9.3.3",
     "mocha": "10.0.0",
     "npm-run-all": "4.1.5",
