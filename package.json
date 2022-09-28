@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
   "dependencies": {
-    "@snyk/protect": "1.1002.0",
+    "@snyk/protect": "1.1004.0",
     "app-store-scraper": "0.17.0",
     "google-play-scraper": "9.1.1",
     "prom-client": "14.1.0",
