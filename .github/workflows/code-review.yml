@@ -23,7 +23,7 @@ jobs:
             snyk.io:443
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
 
       - name: Run ESLint
         uses: reviewdog/action-eslint@d3395027ea2cfc5cf8f460b1ea939b6c86fea656 # tag=v1.17.0
@@ -47,7 +47,7 @@ jobs:
             raw.githubusercontent.com:443
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
 
       - name: Run hadolint
         uses: reviewdog/action-hadolint@55be5d2c4b0b80d439247b128a9ded3747f92a29 # tag=v1.33.0
