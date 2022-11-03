@@ -148,7 +148,7 @@ jobs:
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@e1fe1fc00a3729593e87efb2f88475de76d64a24 # tag=v3.1.1
+        uses: cycjimmy/semantic-release-action@be27b56c2b7c71f71285b5a52067a40ad8b4c516 # tag=v3.1.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
