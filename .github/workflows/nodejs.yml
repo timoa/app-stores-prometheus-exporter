@@ -11,11 +11,11 @@ jobs:
 
     strategy:
       matrix:
-        node: ['16']
+        node: ['18']
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@5e53a6998f4b1305aa150682211e74ec0d8d2dda
+        uses: step-security/harden-runner@8f144f8401c4e3693085dff03603f617f566ec6b
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -30,10 +30,10 @@ jobs:
             snyk.io:443
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b # tag=v3.5.0
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
@@ -50,7 +50,7 @@ jobs:
         run: npm run test:coverage
 
       - name: Save Code Coverage
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: code-coverage
           path: coverage
@@ -63,7 +63,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@5e53a6998f4b1305aa150682211e74ec0d8d2dda
+        uses: step-security/harden-runner@8f144f8401c4e3693085dff03603f617f566ec6b
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -74,10 +74,10 @@ jobs:
             scanner.sonarcloud.io:443
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
       - name: Download Code Coverage
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3.0.0
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: code-coverage
           path: coverage
@@ -101,7 +101,7 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@5e53a6998f4b1305aa150682211e74ec0d8d2dda
+        uses: step-security/harden-runner@8f144f8401c4e3693085dff03603f617f566ec6b
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -112,9 +112,13 @@ jobs:
             pipelines.actions.githubusercontent.com:443
             pypi.org:443
             registry.npmjs.org:443
+            docker.io:443
+            registry-1.docker.io:443
+            auth.docker.io:443
+            production.cloudflare.docker.com:443
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
       - name: Perform Scan
         uses: ShiftLeftSecurity/scan-action@master
@@ -124,7 +128,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SCAN_ANNOTATE_PR: true
 
-      - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
+      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           name: reports
           path: reports
@@ -140,15 +144,15 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@5e53a6998f4b1305aa150682211e74ec0d8d2dda
+        uses: step-security/harden-runner@8f144f8401c4e3693085dff03603f617f566ec6b
         with:
           egress-policy: audit
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@e1fe1fc00a3729593e87efb2f88475de76d64a24 # tag=v3.1.1
+        uses: cycjimmy/semantic-release-action@8f6ceb9d5aae5578b1dcda6af00008235204e7fa # v3.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -161,16 +165,16 @@ jobs:
 
     steps:
       - name: Harden GitHub Actions Runner
-        uses: step-security/harden-runner@5e53a6998f4b1305aa150682211e74ec0d8d2dda
+        uses: step-security/harden-runner@8f144f8401c4e3693085dff03603f617f566ec6b
         with:
           egress-policy: audit
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # tag=v4.0.1
+        uses: docker/metadata-action@507c2f2dc502c992ad446e3d7a5dfbe311567a96 # v4.3.0
         with:
           images: ${{ github.repository }}
           tags: |
@@ -186,7 +190,7 @@ jobs:
         uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 # tag=v2.1.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6 # tag=v2.0.0
+        uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 # tag=v2.2.1
 
       - name: Login to DockerHub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # tag=v2.1.0
@@ -195,7 +199,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and push
-        uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94 # tag=v3.1.1
+        uses: docker/build-push-action@37abcedcc1da61a57767b7588cb9d03eb57e28b3 # v3.3.0
         with:
           context: .
           platforms: linux/amd64,linux/arm64
