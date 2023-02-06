@@ -1,3 +1,10 @@
+## [0.8.6](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.5...v0.8.6) (2023-02-06)
+
+
+### Bug Fixes
+
+* **docker:** fix old version of node version (16 => 18) ([51f254b](https://github.com/timoa/app-stores-prometheus-exporter/commit/51f254b0434fb4bf3082bf7d59325ffddc4cb4a4))
+
 ## [0.8.5](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.4...v0.8.5) (2023-02-06)
 
 
