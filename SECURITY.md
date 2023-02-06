@@ -7,9 +7,8 @@ receiving such patches depend on the CVSS v3.0 Rating:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.5.x   | :white_check_mark: |
-| > 0.4.8 | :white_check_mark: |
-| < 0.4.8 | :x:                |
+| 0.8.x   | :white_check_mark: |
+| < 0.8.0 | :x:                |
 
 ## Reporting a Vulnerability
 

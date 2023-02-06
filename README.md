@@ -256,7 +256,7 @@ appstores_max_active_installs{store="gplay",country="us",app="com.whatsapp",vers
 
 ## Requirements
 
-* NodeJS >=16
+* NodeJS >=18
 
 ## Installation
 
