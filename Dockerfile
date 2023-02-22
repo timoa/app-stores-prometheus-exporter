@@ -1,4 +1,4 @@
-FROM node:18.14.1-alpine3.17@sha256:e0a779479fca9cf43cae2852291bee70e730ae3ad27fea1211060bd344b696b8
+FROM node:18.14.2-alpine3.17@sha256:0d2712ac2b2c1149391173de670406f6e3dbdb1b2ba44e8530647e623e0e1b17
 ARG appPort=9514
 
 LABEL maintainer="Damien Laureaux <d.laureaux@timoa.com>" \
