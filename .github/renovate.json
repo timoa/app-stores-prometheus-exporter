@@ -1,38 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>renovatebot/.github"
-  ],
+  "extends": ["github>renovatebot/.github"],
   "platform": "github",
   "platformAutomerge": true,
   "branchPrefix": "fix/deps/",
-  "addLabels": [
-    "dependencies",
-    "security"
-  ],
-  "assignees": [
-    "timoa"
-  ],
+  "addLabels": ["dependencies", "security"],
+  "assignees": ["timoa"],
   "packageRules": [
     {
       "description": "Automerge renovate minor and patch updates",
-      "matchPackageNames": [
-        "renovate/renovate"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchPackageNames": ["renovate/renovate"],
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "branchTopic": "{{{depNameSanitized}}}-{{{currentValue}}}"
     },
     {
       "description": "Allow updates after 15 days (exclude renovate)",
-      "excludePackageNames": [
-        "renovate/renovate"
-      ],
+      "excludePackageNames": ["renovate/renovate"],
       "separateMinorPatch": true,
-      "stabilityDays": 15
+      "minimumReleaseAge": "15 days"
     }
   ]
 }
