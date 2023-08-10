@@ -37,7 +37,7 @@
   "homepage": "https://github.com/timoa/app-stores-prometheus-exporter#readme",
   "dependencies": {
     "app-store-scraper": "0.17.0",
-    "google-play-scraper": "9.1.1",
+    "google-play-scraper": "10.0.0",
     "prom-client": "14.1.1",
     "uuid": "8.3.2",
     "winston": "3.8.2"
