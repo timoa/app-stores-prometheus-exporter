@@ -216,7 +216,9 @@ function init() {
   config.stores.forEach((store) => {
     // Metrics enabled only
     Object.keys(config.metrics).forEach((metric) => {
-      if (!gauges[metric] && getEnabledMetrics(store).includes(metric)) {
+      if (gauges[metric]) {
+        gauges[metric].reset();
+      } else if (getEnabledMetrics(store).includes(metric)) {
         // Create gauge
         gauges[metric] = createGauge({
           name: metrics[metric].name,
