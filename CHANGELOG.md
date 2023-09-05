@@ -1,3 +1,13 @@
+## [0.8.7](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.6...v0.8.7) (2023-09-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency google-play-scraper to v9.2.0 ([3d09521](https://github.com/timoa/app-stores-prometheus-exporter/commit/3d095215457bc5cbd425a4be0820a043b098042f))
+* **deps:** update dependency prom-client to v14.2.0 ([65af1bd](https://github.com/timoa/app-stores-prometheus-exporter/commit/65af1bd06096c2f95a2f2765cdc1e8beb0d82144))
+* **deps:** update dependency winston to v3.10.0 ([0635881](https://github.com/timoa/app-stores-prometheus-exporter/commit/06358812f53d06904b409251421ec9f69c520209))
+* **deps:** update dependency winston to v3.9.0 ([63463c7](https://github.com/timoa/app-stores-prometheus-exporter/commit/63463c73fdd76f336063fa3fa41608393ab0ddf7))
+
 ## [0.8.6](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.5...v0.8.6) (2023-02-06)
 
 
