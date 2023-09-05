@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Harden the GitHub Actions Runner
-        uses: step-security/harden-runner@394d78e5b40cc35c170eb909b1f81551f37feb05
+        uses: step-security/harden-runner@80b2fcb96ae248b7b80d284855acf93c338a6a0a
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Harden the GitHub Actions Runner
-        uses: step-security/harden-runner@394d78e5b40cc35c170eb909b1f81551f37feb05
+        uses: step-security/harden-runner@80b2fcb96ae248b7b80d284855acf93c338a6a0a
         with:
           egress-policy: block
           allowed-endpoints: >
