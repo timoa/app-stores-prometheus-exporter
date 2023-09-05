@@ -1,3 +1,62 @@
+## [0.8.6](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.5...v0.8.6) (2023-02-06)
+
+
+### Bug Fixes
+
+* **docker:** fix old version of node version (16 => 18) ([51f254b](https://github.com/timoa/app-stores-prometheus-exporter/commit/51f254b0434fb4bf3082bf7d59325ffddc4cb4a4))
+
+## [0.8.5](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.4...v0.8.5) (2023-02-06)
+
+
+### Bug Fixes
+
+* **cicd:** add endpoint to Harden Runner allowlist ([766c32e](https://github.com/timoa/app-stores-prometheus-exporter/commit/766c32e104698ac76f828394f0ace15cd9cb3851))
+* **deps:** update dependency @snyk/protect to v1.1028.0 ([d7db985](https://github.com/timoa/app-stores-prometheus-exporter/commit/d7db985d24d86d65fafd71cee1450f50569fb281))
+* **deps:** update dependency @snyk/protect to v1.1029.0 ([6835c58](https://github.com/timoa/app-stores-prometheus-exporter/commit/6835c58e793f290487a7af50f122959481b702c4))
+* **deps:** update dependency @snyk/protect to v1.1032.0 ([366649d](https://github.com/timoa/app-stores-prometheus-exporter/commit/366649dc93e2afbd8e14309cde593da86558535a))
+* **deps:** update dependency @snyk/protect to v1.1034.0 ([556e16e](https://github.com/timoa/app-stores-prometheus-exporter/commit/556e16e07beb2e3b4d9fd9784bdce9f4be30c48a))
+* **deps:** update dependency @snyk/protect to v1.1035.0 ([d0723a3](https://github.com/timoa/app-stores-prometheus-exporter/commit/d0723a3068dfd7441e1edf4e4f12e127346e5a47))
+* **deps:** update dependency @snyk/protect to v1.1038.0 ([8e18085](https://github.com/timoa/app-stores-prometheus-exporter/commit/8e18085a1dd48180fb1976df39e151d111291bf9))
+* **deps:** update dependency @snyk/protect to v1.1039.0 ([0fb0189](https://github.com/timoa/app-stores-prometheus-exporter/commit/0fb01891fec8be72fcace532e3dcf270eebada24))
+* **deps:** update dependency @snyk/protect to v1.1040.0 ([76f975e](https://github.com/timoa/app-stores-prometheus-exporter/commit/76f975e8545854512a833e14301a965df20888f7))
+* **deps:** update dependency @snyk/protect to v1.1041.0 ([d896941](https://github.com/timoa/app-stores-prometheus-exporter/commit/d896941abd7150c532c1d818c1fa580c3133090f))
+* **deps:** update dependency @snyk/protect to v1.1042.0 ([436ec56](https://github.com/timoa/app-stores-prometheus-exporter/commit/436ec56b0d748261d47a86b761c3e62d91076d06))
+* **deps:** update dependency @snyk/protect to v1.1044.0 ([195d489](https://github.com/timoa/app-stores-prometheus-exporter/commit/195d48999ab6d3cc45badfdf8b0d17152c2def50))
+* **deps:** update dependency @snyk/protect to v1.1045.0 ([809cfca](https://github.com/timoa/app-stores-prometheus-exporter/commit/809cfcacbca1d398660190a144395d43803c3dce))
+* **deps:** update dependency @snyk/protect to v1.1047.0 ([6d86539](https://github.com/timoa/app-stores-prometheus-exporter/commit/6d8653999d3eec6432da2d60723bb266158864d5))
+* **deps:** update dependency @snyk/protect to v1.1048.0 ([6e8cce0](https://github.com/timoa/app-stores-prometheus-exporter/commit/6e8cce00eaf0bf7dfbfe58951b82dc796f6b6d8f))
+* **deps:** update dependency @snyk/protect to v1.1049.0 ([a08cea5](https://github.com/timoa/app-stores-prometheus-exporter/commit/a08cea55ee6dc292f496e793b018de35178dd16f))
+* **deps:** update dependency @snyk/protect to v1.1052.0 ([eb529f5](https://github.com/timoa/app-stores-prometheus-exporter/commit/eb529f52aa25a972fd898ec515028c145bc56274))
+* **deps:** update dependency @snyk/protect to v1.1053.0 ([4b8d863](https://github.com/timoa/app-stores-prometheus-exporter/commit/4b8d8637d35ede47740fc065f393e6d219614f6c))
+* **deps:** update dependency @snyk/protect to v1.1054.0 ([d09b162](https://github.com/timoa/app-stores-prometheus-exporter/commit/d09b162b77419bd324932da7fa7f831b6db66f8d))
+* **deps:** update dependency @snyk/protect to v1.1056.0 ([13c6f3a](https://github.com/timoa/app-stores-prometheus-exporter/commit/13c6f3a660c9491f946e7eef87b3bced24b0086b))
+* **deps:** update dependency @snyk/protect to v1.1057.0 ([338e576](https://github.com/timoa/app-stores-prometheus-exporter/commit/338e576d4c5a1e27e2c07f9a7b522d50fa99e775))
+* **deps:** update dependency @snyk/protect to v1.1058.0 ([cb45ca2](https://github.com/timoa/app-stores-prometheus-exporter/commit/cb45ca2c459f45fa0b139c8ab02a19c4df2b2ae7))
+* **deps:** update dependency @snyk/protect to v1.1059.0 ([8d7ab63](https://github.com/timoa/app-stores-prometheus-exporter/commit/8d7ab63ad5239dd1188687b0c5242a8324d36aa6))
+* **deps:** update dependency @snyk/protect to v1.1060.0 ([aaa7137](https://github.com/timoa/app-stores-prometheus-exporter/commit/aaa7137bc7459a3c62f439fd56c0c3c56fae428b))
+* **deps:** update dependency @snyk/protect to v1.1061.0 ([0eb7c81](https://github.com/timoa/app-stores-prometheus-exporter/commit/0eb7c8117f8ab75bc030191d142e91d1e15dbada))
+* **deps:** update dependency @snyk/protect to v1.1063.0 ([587924e](https://github.com/timoa/app-stores-prometheus-exporter/commit/587924e5f3411aead6669770ede411290135859e))
+* **deps:** update dependency @snyk/protect to v1.1064.0 ([edcd74d](https://github.com/timoa/app-stores-prometheus-exporter/commit/edcd74d15ea00d26e02159b1a2c3500862adc100))
+* **deps:** update dependency @snyk/protect to v1.1065.0 ([add9cac](https://github.com/timoa/app-stores-prometheus-exporter/commit/add9cacfd2a225939ba07a45597b4e6ff58b2277))
+* **deps:** update dependency @snyk/protect to v1.1066.0 ([6e261d9](https://github.com/timoa/app-stores-prometheus-exporter/commit/6e261d93fe81802f1790cb3b39fd48dc4201841c))
+* **deps:** update dependency @snyk/protect to v1.1068.0 ([ae8c349](https://github.com/timoa/app-stores-prometheus-exporter/commit/ae8c34994bc32580c36e264474c4a7394519e5f8))
+* **deps:** update dependency @snyk/protect to v1.1069.0 ([23c0286](https://github.com/timoa/app-stores-prometheus-exporter/commit/23c0286fefd9726b36f38d6f61897370cd76c49b))
+* **deps:** update dependency @snyk/protect to v1.1071.0 ([abdd409](https://github.com/timoa/app-stores-prometheus-exporter/commit/abdd409ec14b9334dc4e738705d4e02f7f72ba00))
+* **deps:** update dependency @snyk/protect to v1.1072.0 ([f468b2e](https://github.com/timoa/app-stores-prometheus-exporter/commit/f468b2eb778e521a6aa31f9736dd9f8c87f3ae96))
+* **deps:** update dependency @snyk/protect to v1.1073.0 ([a4bf1fa](https://github.com/timoa/app-stores-prometheus-exporter/commit/a4bf1fa712a3008d8797d4922dab62a7a0fddaab))
+* **deps:** update dependency @snyk/protect to v1.1074.0 ([db39785](https://github.com/timoa/app-stores-prometheus-exporter/commit/db397857d4b0c46810e55ec61a27c921ea6a51db))
+* **deps:** update dependency @snyk/protect to v1.1076.0 ([d5eecde](https://github.com/timoa/app-stores-prometheus-exporter/commit/d5eecdec2ddd79a69064da2bb127ae4cb5377fc4))
+* **deps:** update dependency @snyk/protect to v1.1077.0 ([9b34cb8](https://github.com/timoa/app-stores-prometheus-exporter/commit/9b34cb8343cde86c595e2374cf914b41f5e2d9ef))
+* **deps:** update dependency @snyk/protect to v1.1080.0 ([facc7dc](https://github.com/timoa/app-stores-prometheus-exporter/commit/facc7dc5e955afa3822f5e8b21f7b62329cdfd93))
+* **deps:** update dependency @snyk/protect to v1.1081.0 ([deb3315](https://github.com/timoa/app-stores-prometheus-exporter/commit/deb3315d51f902c4c7e163af8fe3c1c13a1fa419))
+* **deps:** update dependency @snyk/protect to v1.1082.0 ([5ea5204](https://github.com/timoa/app-stores-prometheus-exporter/commit/5ea5204dce26679990865f9f944d843d35255a45))
+* **deps:** update dependency @snyk/protect to v1.1085.0 ([8a24f06](https://github.com/timoa/app-stores-prometheus-exporter/commit/8a24f0634b8575f4632bccf79612b90596cd75aa))
+* **deps:** update dependency @snyk/protect to v1.1087.0 ([5f5d581](https://github.com/timoa/app-stores-prometheus-exporter/commit/5f5d5814b009be525df743988494091fca6a1a21))
+* **deps:** update dependency @snyk/protect to v1.1088.0 ([4763f91](https://github.com/timoa/app-stores-prometheus-exporter/commit/4763f9155bd07430e9cca1b76391b421c329a37e))
+* **deps:** update dependency prom-client to v14.1.1 ([a41073e](https://github.com/timoa/app-stores-prometheus-exporter/commit/a41073e84f0a6335dac62e11838d9efd29fb34b6))
+* **deps:** update package-lock.json + fix security vulnerabilities ([b887419](https://github.com/timoa/app-stores-prometheus-exporter/commit/b887419955e2002570abbe1002596ff86971b13e))
+* **node:** upgrade from node v16.x to v18.x ([621ed98](https://github.com/timoa/app-stores-prometheus-exporter/commit/621ed9839258b5601161abe02c2cbb30abcc63fc))
+
 ## [0.8.4](https://github.com/timoa/app-stores-prometheus-exporter/compare/v0.8.3...v0.8.4) (2022-10-27)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "app-stores-prometheus-exporter",
-  "version": "0.8.4",
+  "version": "0.8.6",
   "description": "Prometheus exporter that exports metrics (score, ratings, reviews, app version, etc.) from Apple App Store and Google Play (and more in the future).",
   "private": true,
   "scripts": {
