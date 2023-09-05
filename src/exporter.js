@@ -48,6 +48,7 @@ server.on('request', (req, res) => {
   if (req.method === 'GET' && req.url === '/metrics') {
     getPayload()
       .then((payload) => {
+        prometheus.init();
         res.setHeader('Content-Type', prometheus.getContentType);
         res.end(payload);
       })

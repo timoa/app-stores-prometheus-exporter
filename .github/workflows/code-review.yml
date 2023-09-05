@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Harden the GitHub Actions Runner
-        uses: step-security/harden-runner@cbe522639944d3247f1f8832639650558051f9b7
+        uses: step-security/harden-runner@394d78e5b40cc35c170eb909b1f81551f37feb05
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -23,10 +23,10 @@ jobs:
             snyk.io:443
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: Run ESLint
-        uses: reviewdog/action-eslint@d3395027ea2cfc5cf8f460b1ea939b6c86fea656 # tag=v1.17.0
+        uses: reviewdog/action-eslint@f2ee6727e05e6f0e46ea1d06a16f6685d3d7fb37 # v1.19.2
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Harden the GitHub Actions Runner
-        uses: step-security/harden-runner@cbe522639944d3247f1f8832639650558051f9b7
+        uses: step-security/harden-runner@394d78e5b40cc35c170eb909b1f81551f37feb05
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -47,9 +47,9 @@ jobs:
             raw.githubusercontent.com:443
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
       - name: Run hadolint
-        uses: reviewdog/action-hadolint@141ffd8d2f0b75e6fc7c87341331985448b62aa4 # v1.34.1
+        uses: reviewdog/action-hadolint@7bd0800b7ce35c6d644cde762174e69f18896973 # v1.35.0
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
