@@ -5,7 +5,7 @@ const path = require('path');
 const logger = require('./lib/logger');
 
 // Check if there is a `apps.json` in the config folder
-if (!fs.existsSync(path.resolve(__dirname, '../config/apps.json'))) {
+if (!process.env.APPS && !fs.existsSync(path.resolve(__dirname, '../config/apps.json'))) {
   logger.error(
     'Please copy the file "src/examples/apps.json" => "config/apps.json"',
   );
@@ -13,7 +13,7 @@ if (!fs.existsSync(path.resolve(__dirname, '../config/apps.json'))) {
 }
 
 // Check if there is a `config.json` in the config folder
-if (!fs.existsSync(path.resolve(__dirname, '../config/config.json'))) {
+if (!process.env.CONFIG && !fs.existsSync(path.resolve(__dirname, '../config/config.json'))) {
   logger.error(
     'Please copy the file "src/examples/config.json" => "config/config.json"',
   );
