@@ -40,7 +40,7 @@
     "google-play-scraper": "9.2.0",
     "prom-client": "14.2.0",
     "uuid": "8.3.2",
-    "winston": "3.12.1"
+    "winston": "3.13.0"
   },
   "engines": {
     "node": ">=18.0",
