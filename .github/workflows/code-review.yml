@@ -50,6 +50,6 @@ jobs:
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Run hadolint
-        uses: reviewdog/action-hadolint@13c293e6679cd4c90fa41dd5155fb067a28c0a5f # v1.41.1
+        uses: reviewdog/action-hadolint@0cb2ac2bb3969115db5f40c88bbb1f4ce7f59c2f # v1.41.2
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
