@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Run ESLint
-        uses: reviewdog/action-eslint@423672b7acbb75ee34d3e37aff30949ddc8350e3 # v1.24.0
+        uses: reviewdog/action-eslint@790a3d311c34b6f73294740617f9c2e9be493ae3 # v1.25.0
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
