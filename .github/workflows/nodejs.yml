@@ -86,7 +86,7 @@ jobs:
         run: ./scripts/version.sh
 
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@ba3875ecf642b2129de2b589510c81a8b53dbf4e # master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -121,7 +121,7 @@ jobs:
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Perform Scan
-        uses: ShiftLeftSecurity/scan-action@master
+        uses: ShiftLeftSecurity/scan-action@4d4c04908eff87430482f36340ad5706c14cf9a6 # master
 
         env:
           WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
