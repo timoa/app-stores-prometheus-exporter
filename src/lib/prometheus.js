@@ -4,10 +4,10 @@ const client = require('prom-client');
 const itunes = require('app-store-scraper');
 const gplay = require('google-play-scraper');
 
-// Config files
-const config = require('../../config/config.json');
-const apps = require('../../config/apps.json');
-const metrics = require('../config/metrics.json');
+// get config from docker environment variables or config files
+const config = process.env.CONFIG ? JSON.parse(process.env.CONFIG) : require('../../config/config.json');
+const apps = process.env.APPS ? JSON.parse(process.env.APPS) : require('../../config/apps.json');
+const metrics = process.env.METRICS ? JSON.parse(process.env.METRICS) : require('../config/metrics.json');
 
 const register = new client.Registry();
 
