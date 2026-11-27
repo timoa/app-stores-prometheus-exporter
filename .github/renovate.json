@@ -16,9 +16,9 @@
     },
     {
       "description": "Allow updates after 15 days (exclude renovate)",
-      "excludePackageNames": ["renovate/renovate"],
       "separateMinorPatch": true,
-      "minimumReleaseAge": "15 days"
+      "minimumReleaseAge": "15 days",
+      "matchPackageNames": ["!renovate/renovate"]
     }
   ]
 }
